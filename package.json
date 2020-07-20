@@ -2,18 +2,48 @@
   "name": "controller-overlay",
   "version": "0.1.0",
   "description": "Display an overlay to show your controller(s) input",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --env=dev",
+    "build": "webpack",
+    "test": "npm run lint",
+    "lint": "tslint -p tsconfig.json -c tslint.yaml",
+    "prettier": "prettier --write '**/*.{ts,tsx}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier",
+      "pre-push": "npm run test"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danikaze/controller-overlay.git"
   },
-  "author": "@danikaze",
+  "author": "danikaze <danikaze@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/danikaze/controller-overlay/issues"
   },
-  "homepage": "https://github.com/danikaze/controller-overlay#readme"
+  "homepage": "https://github.com/danikaze/controller-overlay#readme",
+  "devDependencies": {
+    "@types/webpack": "^4.41.21",
+    "copy-webpack-plugin": "^6.0.3",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "ts-loader": "^8.0.1",
+    "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^6.1.2",
+    "tslint-consistent-codestyle": "^1.16.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-lines-between-class-members": "^1.3.6",
+    "tslint-loader": "^3.5.4",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "tslint-react": "^5.0.0",
+    "typescript": "^3.9.7",
+    "typescript-tslint-plugin": "^0.5.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
 }
