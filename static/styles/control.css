@@ -1,0 +1,96 @@
+:root {
+  --main-color: #55ff00;
+  --bg-color: #000;
+  --active-color: #a5ff77;
+  --axis-color: #2a8000;
+  --axis-style: dashed;
+  --axis-width: 2px;
+  --z-text: 20;
+  --z-input: 10;
+  --border-width: 2px;
+  --border-style: solid;
+  --border-radius: 5px;
+  --margin: 3px;
+  --text-v-offset: -17px;
+  --text-h-offset: -15px;
+  --transition-enter-time: 50ms;
+  --transition-exit-time: 1000ms;
+}
+
+.orange {
+  --main-color: #d66800;
+}
+
+.control {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--margin);
+}
+.text {
+  z-index: var(--z-text);
+  position: absolute;
+  color: var(--main-color);
+  text-transform: uppercase;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+}
+.text-t {
+  top: var(--text-v-offset);
+}
+.text-l {
+  writing-mode: vertical-rl;
+  left: var(--text-h-offset);
+  transform: rotate(180deg);
+  height: 100%;
+}
+.text-r {
+  writing-mode: vertical-rl;
+  right: var(--text-h-offset);
+  height: 100%;
+}
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-input);
+  width: 100%;
+  height: 100%;
+  border-width: var(--border-width);
+  border-radius: var(--border-radius);
+  border-style: var(--border-style);
+  border-color: var(--main-color);
+  background: var(--bg-color);
+}
+
+.input .axis-x-center {
+  position: absolute;
+  left: calc(50% - calc(var(--border-width) / 2));
+  height: 100%;
+  width: 0;
+  border-left: var(--axis-width);
+  border-color: var(--axis-color);
+  border-style: var(--axis-style);
+}
+.input .axis-y-center {
+  height: 0;
+  width: 100%;
+  border-top: calc(var(--axis-width) / 2);
+  border-bottom: calc(var(--axis-width) / 2);
+  border-color: var(--axis-color);
+  border-style: var(--axis-style);
+}
+
+.input .axis-position {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.layout {
+  position: absolute;
+}

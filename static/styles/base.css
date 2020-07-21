@@ -1,0 +1,27 @@
+body {
+  background: black;
+}
+#container {
+  display: inline-block;
+}
+
+body.display {
+  background: transparent;
+}
+.display #info {
+  display: none;
+}
+
+#info {
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  background: rgb(226, 226, 226);
+  border: 2px solid rgb(201, 201, 201);
+  border-right: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  font-family: monospace;
+}

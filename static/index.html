@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <title>Controller widget</title>
+
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/control.css" />
+    <link rel="stylesheet" href="styles/control-axis-x.css" />
+    <link rel="stylesheet" href="styles/control-axis-y.css" />
+    <link rel="stylesheet" href="styles/control-axis-xy.css" />
+    <link rel="stylesheet" href="styles/control-button.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="throttle" class="control axis-2y">
+        <div class="input">
+          <div class="axis-position"></div>
+        </div>
+        <div class="text text-r">Throttle</div>
+      </div>
+
+      <div id="thrust" class="control axis-y">
+        <div class="input">
+          <div class="axis-y-center"></div>
+          <div class="axis-position"></div>
+        </div>
+        <div class="text text-r">Thrust</div>
+      </div>
+
+      <div id="thrusters" class="control axis-xy">
+        <div class="input">
+          <div class="axis-x-center"></div>
+          <div class="axis-y-center"></div>
+          <div class="axis-position"></div>
+        </div>
+        <div class="text text-t">Lateral</div>
+        <div class="text text-r">Vertical</div>
+      </div>
+
+      <div id="yaw" class="control axis-x">
+        <div class="input">
+          <div class="axis-x-center"></div>
+          <div class="axis-position"></div>
+        </div>
+        <div class="text text-t">Yaw</div>
+      </div>
+
+      <div id="stick" class="control axis-xy">
+        <div class="input">
+          <div class="axis-x-center"></div>
+          <div class="axis-y-center"></div>
+          <div class="axis-position"></div>
+        </div>
+        <div class="text text-l">Roll</div>
+        <div class="text text-t">Pitch</div>
+      </div>
+
+      <div id="buttons" class="layout">
+        <div id="boost" class="control button">
+          <div class="input"></div>
+          <div class="text">Boost</div>
+        </div>
+
+        <div id="chaff" class="control button">
+          <div class="input"></div>
+          <div class="text">Chaff</div>
+        </div>
+
+        <div id="ecm" class="control button">
+          <div class="input"></div>
+          <div class="text">ECM</div>
+        </div>
+
+        <div id="shield-charge-boost" class="control button">
+          <div class="input"></div>
+          <div class="text">Shield boost</div>
+        </div>
+
+        <div id="heat-sink" class="control button">
+          <div class="input"></div>
+          <div class="text">Heat Sink</div>
+        </div>
+
+        <div id="flight-assist" class="control button">
+          <div class="input"></div>
+          <div class="text">FA Off</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="info">
+      <div>Container size: <span id="container-size"></span></div>
+      <div>OBS URL: <span id="obs-url"></span></div>
+      <div>User Agent: <span id="ua-info"></span></div>
+    </div>
+  </body>
+  <script src="js/main.js"></script>
+</html>

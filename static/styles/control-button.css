@@ -1,0 +1,12 @@
+.button {
+  width: 50px;
+  height: 30px;
+}
+.button .text,
+.button .input {
+  transition: all linear var(--transition-exit-time);
+}
+.pressed .input {
+  transition: all linear var(--transition-enter-time);
+  background-color: var(--active-color);
+}

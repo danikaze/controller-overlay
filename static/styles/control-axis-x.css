@@ -1,0 +1,8 @@
+.axis-x {
+  width: 110px;
+  height: 20px;
+}
+
+.axis-x .text {
+  top: var(--text-v-offset);
+}
