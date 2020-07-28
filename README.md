@@ -14,7 +14,7 @@ In `OBS` add a `New source > Browser` and enter the provided `OBS URL` in the bo
 
 First version is just a PoC (_Proof of Concept_) where the shown controls are what **I** find interesting to show for **Elite Dangerous**, and the bindings are the ones I use with my **X-56**, so every value is harcoded.
 
-However, bindings are configurable by changing [controller-definitions.ts](src/controller-definitions.ts) file and rebuilding the project.
+However, bindings are configurable by changing the [config file](src/elite.ts) and rebuilding the project.
 
 ## Rebuilding
 
@@ -33,3 +33,15 @@ npm build
 Building will generate the required files in the `app` folder, the `index.html` file is the one to use.
 
 [screenshot]: ./img/screenshot-0.1.0.png 'HOTAS overlay preview'
+
+## Changelog
+
+### 0.2.0
+
+Allow to fully customize the layout from a [config file](src/elite.ts).
+
+Config file is still hardcoded tho, but it's a big step.
+
+### 0.1.0
+
+First version. PoC to test the creation of a browser source in OBS.
