@@ -2,7 +2,7 @@
   --main-color: #55ff00;
   --bg-color: #000;
   --active-color: #a5ff77;
-  --axis-color: #2a8000;
+  --axis-color: #226600;
   --axis-style: dashed;
   --axis-width: 2px;
   --z-text: 20;
@@ -53,6 +53,7 @@
 }
 .input {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   z-index: var(--z-input);
@@ -74,13 +75,29 @@
   border-color: var(--axis-color);
   border-style: var(--axis-style);
 }
-.input .axis-y-center {
+.input .axis-y-center,
+.input .axis-y-25,
+.input .axis-y-50,
+.input .axis-y-75 {
   height: 0;
   width: 100%;
   border-top: calc(var(--axis-width) / 2);
   border-bottom: calc(var(--axis-width) / 2);
   border-color: var(--axis-color);
   border-style: var(--axis-style);
+}
+.input .axis-y-25,
+.input .axis-y-50,
+.input .axis-y-75 {
+  position: absolute;
+  top: calc(75% - var(--border-width) / 2);
+  width: calc(100% - 2 * var(--border-width));
+}
+.input .axis-y-50 {
+  top: calc(50% - var(--border-width) / 2);
+}
+.input .axis-y-75 {
+  top: calc(25% - var(--border-width) / 2);
 }
 
 .input .axis-position {
