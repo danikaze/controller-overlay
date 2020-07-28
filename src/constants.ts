@@ -1,43 +1,61 @@
-export const UPDATE_FPS = 60;
-
-export const AXIS_Y_SIZE = 110;
-export const AXIS_X_SIZE = 110;
-
-export type InputType =
-  | 'BUTTON'
-  | 'AXIS_X'
-  | 'AXIS_Y'
-  | 'BUTTON_AXIS_X'
-  | 'BUTTON_AXIS_Y';
-
-export interface PadButtonDefinitionButton {
-  button: number;
-  type: 'BUTTON';
-  id: string;
-}
-export interface PadButtonDefinitionButtonAxis {
-  type: 'BUTTON_AXIS_X' | 'BUTTON_AXIS_Y';
-  id: string;
-  buttonMin: number;
-  buttonMax: number;
-  range: [number, number];
-}
-export type PadButtonDefinition =
-  | PadButtonDefinitionButton
-  | PadButtonDefinitionButtonAxis;
-
-export interface PadAxisDefinition {
-  axis: number;
-  type: 'AXIS_X' | 'AXIS_Y';
-  id: string;
-  range: [number, number];
-}
-
-export interface PadDefinition {
-  buttons?: PadButtonDefinition[];
-  axes?: PadAxisDefinition[];
-}
-
-export type PadDefinitions = Partial<{ [pad: string]: PadDefinition }>;
-
 export type PadMapping = { [pad: string]: string | RegExp };
+
+export interface Config {
+  version: number;
+  widgets: Widget[];
+}
+
+export type Widget = WidgetGroup | WidgetButton | WidgetAxis;
+
+export interface WidgetLabel {
+  center?: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}
+
+type WidgetStyles = 'widget';
+
+interface WidgetBase<T, S extends string = WidgetStyles> {
+  type: T;
+  name: string;
+  labels?: WidgetLabel;
+  styles?: Partial<{ [part in S | WidgetStyles]: { [key: string]: string } }>;
+}
+
+export interface InputButton {
+  type: 'button';
+  pad: string;
+  button: number;
+}
+
+export interface InputAxis {
+  type: 'axis';
+  pad: string;
+  axis: number;
+  inverted?: boolean;
+}
+
+export interface InputAxisButton {
+  type: 'axis-button';
+  min: InputButton;
+  max: InputButton;
+  inverted?: boolean;
+}
+
+export interface WidgetGroup extends WidgetBase<'group'> {
+  children: Widget[];
+}
+
+export interface WidgetButton extends WidgetBase<'button'> {
+  input: InputButton;
+}
+
+export interface WidgetAxis extends WidgetBase<'axis', 'position'> {
+  gridlines?: number[];
+  input: {
+    x?: InputAxis | InputAxisButton;
+    y?: InputAxis | InputAxisButton;
+  };
+}

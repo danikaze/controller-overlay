@@ -12,7 +12,7 @@ function updateSize() {
   let w = 0;
   let h = 0;
 
-  Array.from(document.querySelectorAll('.control')).forEach((elem) => {
+  Array.from(document.querySelectorAll('.widget')).forEach((elem) => {
     const bounds = elem.getBoundingClientRect();
     w = Math.max(w, bounds.right);
     h = Math.max(h, bounds.bottom);

@@ -5,14 +5,15 @@
   --axis-color: #226600;
   --axis-style: dashed;
   --axis-width: 2px;
+  --z-axis-position: 30;
   --z-text: 20;
   --z-input: 10;
   --border-width: 2px;
   --border-style: solid;
   --border-radius: 5px;
   --margin: 3px;
-  --text-v-offset: -17px;
-  --text-h-offset: -15px;
+  --label-v-offset: -17px;
+  --label-h-offset: -15px;
   --transition-enter-time: 50ms;
   --transition-exit-time: 1000ms;
 }
@@ -21,14 +22,14 @@
   --main-color: #d66800;
 }
 
-.control {
+.widget {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: var(--margin);
 }
-.text {
+.label {
   z-index: var(--z-text);
   position: absolute;
   color: var(--main-color);
@@ -37,18 +38,21 @@
   font-weight: bold;
   text-align: center;
 }
-.text-t {
-  top: var(--text-v-offset);
+.label-top {
+  top: var(--label-v-offset);
 }
-.text-l {
+.label-bottom {
+  bottom: var(--label-v-offset);
+}
+.label-left {
   writing-mode: vertical-rl;
-  left: var(--text-h-offset);
+  left: var(--label-h-offset);
   transform: rotate(180deg);
   height: 100%;
 }
-.text-r {
+.label-right {
   writing-mode: vertical-rl;
-  right: var(--text-h-offset);
+  right: var(--label-h-offset);
   height: 100%;
 }
 .input {
@@ -66,38 +70,23 @@
   background: var(--bg-color);
 }
 
-.input .axis-x-center {
+.gridline-x {
   position: absolute;
+  height: 0;
+  width: calc(100% - 2 * var(--border-width));
+  border-top: calc(var(--axis-width) / 2);
+  border-bottom: calc(var(--axis-width) / 2);
+  border-color: var(--axis-color);
+  border-style: var(--axis-style);
+}
+
+.gridline-y {
   left: calc(50% - calc(var(--border-width) / 2));
   height: 100%;
   width: 0;
   border-left: var(--axis-width);
   border-color: var(--axis-color);
   border-style: var(--axis-style);
-}
-.input .axis-y-center,
-.input .axis-y-25,
-.input .axis-y-50,
-.input .axis-y-75 {
-  height: 0;
-  width: 100%;
-  border-top: calc(var(--axis-width) / 2);
-  border-bottom: calc(var(--axis-width) / 2);
-  border-color: var(--axis-color);
-  border-style: var(--axis-style);
-}
-.input .axis-y-25,
-.input .axis-y-50,
-.input .axis-y-75 {
-  position: absolute;
-  top: calc(75% - var(--border-width) / 2);
-  width: calc(100% - 2 * var(--border-width));
-}
-.input .axis-y-50 {
-  top: calc(50% - var(--border-width) / 2);
-}
-.input .axis-y-75 {
-  top: calc(25% - var(--border-width) / 2);
 }
 
 .input .axis-position {
@@ -106,8 +95,18 @@
   height: 12px;
   border-radius: 4px;
   background-color: white;
+  z-index: var(--z-axis-position);
 }
 
-.layout {
+.widget-group {
   position: absolute;
+}
+
+.button .label,
+.button .input {
+  transition: all linear var(--transition-exit-time);
+}
+.pressed .input {
+  transition: all linear var(--transition-enter-time);
+  background-color: var(--active-color) !important;
 }
