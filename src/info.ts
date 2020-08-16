@@ -12,18 +12,26 @@ function updateConfig(config: Config) {
 }
 
 function updateSize() {
-  const heightFixPx = 3;
-
   let w = 0;
   let h = 0;
 
-  Array.from(document.querySelectorAll('.widget')).forEach((elem) => {
-    const bounds = elem.getBoundingClientRect();
-    w = Math.max(w, bounds.right);
-    h = Math.max(h, bounds.bottom);
-  });
+  Array.from(document.querySelectorAll('.widget,.img-container')).forEach(
+    (elem) => {
+      const bounds = elem.getBoundingClientRect();
+      if (!bounds.width || !bounds.height) {
+        Array.from(elem.children).forEach((child) => {
+          const bounds = child.getBoundingClientRect();
+          w = Math.max(w, bounds.right);
+          h = Math.max(h, bounds.bottom);
+        });
+      } else {
+        w = Math.max(w, bounds.right);
+        h = Math.max(h, bounds.bottom);
+      }
+    }
+  );
 
-  setInfoElement('container-size', `${w} x ${h + heightFixPx}`);
+  setInfoElement('container-size', `${w} x ${h}`);
 }
 
 function updateUrl() {

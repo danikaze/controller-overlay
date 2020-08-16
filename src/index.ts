@@ -13,4 +13,4 @@ const config = /mega/.test(configGetParam!) ? megaDrive6config : eliteConfig;
 
 renderConfig(config);
 initControllers();
-updateInfo(config);
+setTimeout(() => updateInfo(config), 150);
