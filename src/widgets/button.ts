@@ -1,9 +1,9 @@
 import { WidgetButton } from '@src/constants';
-import { createDiv, addLabels } from '@src/dom';
+import { createElem, addLabels } from '@src/dom';
 import { onButtonChange } from '@src/controllers';
 
 export function renderButton(def: WidgetButton): HTMLElement {
-  const widget = createDiv({
+  const widget = createElem({
     classes: 'widget button',
     styles: {
       width: '50px',
@@ -12,7 +12,7 @@ export function renderButton(def: WidgetButton): HTMLElement {
     },
   });
 
-  createDiv({
+  createElem({
     classes: 'input',
     parent: widget,
   });

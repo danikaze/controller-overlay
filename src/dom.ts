@@ -1,7 +1,8 @@
 import { WidgetLabel } from './constants';
 
-export interface DivOptions {
+export interface DivOptions<T extends keyof HTMLElementTagNameMap = 'div'> {
   id?: string;
+  type?: T;
   classes?: string | string[] | undefined;
   styles?: { [key: string]: string };
   parent?: HTMLElement;
@@ -9,8 +10,12 @@ export interface DivOptions {
   data?: { [key: string]: string | number };
 }
 
-export function createDiv(options: DivOptions = {}): HTMLDivElement {
-  const div = document.createElement('div');
+export function createElem<T extends keyof HTMLElementTagNameMap = 'div'>(
+  options: DivOptions<T> = {}
+): HTMLElementTagNameMap[T] {
+  const div = document.createElement(
+    options.type || ('div' as keyof HTMLElementTagNameMap)
+  );
 
   if (options.id) {
     div.id = options.id;
@@ -44,14 +49,14 @@ export function createDiv(options: DivOptions = {}): HTMLDivElement {
     });
   }
 
-  return div;
+  return div as HTMLElementTagNameMap[T];
 }
 
 export function addLabels(elem: HTMLElement, labels?: WidgetLabel): void {
   if (!labels) return;
 
   Object.entries(labels).forEach(([key, text]) => {
-    createDiv({
+    createElem({
       text,
       classes: `label label-${key}`,
       parent: elem,

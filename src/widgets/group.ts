@@ -1,9 +1,9 @@
 import { WidgetGroup } from '@src/constants';
-import { createDiv, addLabels } from '@src/dom';
+import { createElem, addLabels } from '@src/dom';
 import { renderWidget } from '.';
 
 export function renderGroup(def: WidgetGroup): HTMLElement {
-  const widget = createDiv({
+  const widget = createElem({
     classes: 'widget-group',
     styles: def.styles?.widget,
     data: { name: def.name },
