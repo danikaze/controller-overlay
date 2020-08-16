@@ -1,5 +1,5 @@
-import { WidgetAxis, InputAxis, InputAxisButton } from '@src/constants';
-import { createDiv, addLabels } from '@src/dom';
+import { WidgetAxis, InputAxis, InputButtonAsAxis } from '@src/constants';
+import { createElem, addLabels } from '@src/dom';
 import { onButtonChange, onAxisChange } from '@src/controllers';
 
 const FULL_HEIGHT = 100;
@@ -21,7 +21,7 @@ const DEFAULT_STYLES = {
 
 export function renderAxis(def: WidgetAxis): HTMLElement {
   const axisType = `${def.input.x ? 'x' : ''}${def.input.y ? 'y' : ''}`;
-  const widget = createDiv({
+  const widget = createElem({
     classes: `widget axis ${def.type}-${axisType}`,
     styles: {
       ...DEFAULT_STYLES[axisType as 'x' | 'y' | 'xy'],
@@ -29,11 +29,11 @@ export function renderAxis(def: WidgetAxis): HTMLElement {
     },
   });
 
-  const input = createDiv({
+  const input = createElem({
     classes: 'input',
     parent: widget,
   });
-  const position = createDiv({
+  const position = createElem({
     classes: 'axis-position',
     parent: input,
     styles: def.styles?.position,
@@ -42,7 +42,7 @@ export function renderAxis(def: WidgetAxis): HTMLElement {
   if (def.gridlines) {
     if (def.input.x) {
       def.gridlines.forEach((g) => {
-        createDiv({
+        createElem({
           classes: 'gridline-y',
           data: { gridline: g },
           parent: input,
@@ -54,7 +54,7 @@ export function renderAxis(def: WidgetAxis): HTMLElement {
     }
     if (def.input.y) {
       def.gridlines.forEach((percentage) => {
-        createDiv({
+        createElem({
           classes: 'gridline-x',
           data: { gridline: percentage },
           parent: input,
@@ -74,14 +74,14 @@ export function renderAxis(def: WidgetAxis): HTMLElement {
 }
 
 function addBehavior(
-  input: InputAxis | InputAxisButton | undefined,
+  input: InputAxis | InputButtonAsAxis | undefined,
   type: 'x' | 'y',
   position: HTMLElement,
   axisSize: number
 ): void {
   if (!input) return;
 
-  if (isAxisButton(input)) {
+  if (isButtonAsAxis(input)) {
     addBehaviorButton(
       type,
       input.min.pad,
@@ -104,7 +104,9 @@ function addBehavior(
   }
 }
 
-function isAxisButton(o: InputAxis | InputAxisButton): o is InputAxisButton {
+function isButtonAsAxis(
+  o: InputAxis | InputButtonAsAxis
+): o is InputButtonAsAxis {
   return typeof (o as InputAxis).axis === 'undefined';
 }
 

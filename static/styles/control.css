@@ -110,3 +110,10 @@
   transition: all linear var(--transition-enter-time);
   background-color: var(--active-color) !important;
 }
+
+.image-button-digital {
+  display: none;
+}
+.image-button-digital.pressed {
+  display: block;
+}

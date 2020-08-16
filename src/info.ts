@@ -1,13 +1,18 @@
-export function updateInfo() {
+import { Config } from './constants';
+
+export function updateInfo(config: Config) {
+  updateConfig(config);
   updateSize();
   updateUrl();
   updateUa();
 }
 
+function updateConfig(config: Config) {
+  setInfoElement('config-name', config.name);
+}
+
 function updateSize() {
   const heightFixPx = 3;
-  const elem = document.getElementById('container-size');
-  if (!elem) return;
 
   let w = 0;
   let h = 0;
@@ -18,20 +23,23 @@ function updateSize() {
     h = Math.max(h, bounds.bottom);
   });
 
-  elem.innerText = `${w} x ${h + heightFixPx}`;
+  setInfoElement('container-size', `${w} x ${h + heightFixPx}`);
 }
 
 function updateUrl() {
-  const elem = document.getElementById('obs-url');
-  if (!elem) return;
-
-  const url = `${location.protocol}//${location.pathname}?display=1`;
-  elem.innerText = url;
+  const url = new URL(location.href);
+  url.searchParams.set('display', '1');
+  setInfoElement('obs-url', url.href);
 }
 
 function updateUa() {
-  const elem = document.getElementById('ua-info');
-  if (!elem) return;
+  setInfoElement('ua-info', navigator.userAgent);
+}
 
-  elem.innerText = navigator.userAgent;
+function setInfoElement(classname: string, info: string = '') {
+  document
+    .querySelectorAll<HTMLSpanElement>(`#info .${classname} span`)
+    .forEach((elem) => {
+      elem.innerText = info;
+    });
 }

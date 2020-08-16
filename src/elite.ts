@@ -3,6 +3,7 @@ import { Config } from './constants';
 
 export const config: Config = {
   version: 1,
+  name: 'Logitech X-56 for  Elite Dangerous',
   widgets: [
     {
       type: 'group',
@@ -213,7 +214,7 @@ export const config: Config = {
           gridlines: [50],
           input: {
             y: {
-              type: 'axis-button',
+              type: 'button-as-axis',
               min: {
                 type: 'button',
                 pad:

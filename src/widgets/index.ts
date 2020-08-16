@@ -3,7 +3,9 @@ import { renderButton } from './button';
 import { renderAxis } from './axis';
 import { renderGroup } from './group';
 
-export function renderWidget(widget: Widget): HTMLElement | undefined {
+export function renderWidget(
+  widget: Widget
+): HTMLElement | HTMLElement[] | undefined {
   if (widget.type === 'group') {
     return renderGroup(widget);
   }
