@@ -27,8 +27,9 @@ function updateSize() {
 }
 
 function updateUrl() {
-  const url = `${location.protocol}//${location.pathname}?display=1`;
-  setInfoElement('obs-url', url);
+  const url = new URL(location.href);
+  url.searchParams.set('display', '1');
+  setInfoElement('obs-url', url.href);
 }
 
 function updateUa() {
