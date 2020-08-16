@@ -4,7 +4,9 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 
 ![Preview screenshot][elite-screenshot]
 
-![Preview screenshot][megadrive-screenshot]
+![Preview screenshot][megadrive6-screenshot]
+
+![Preview screenshot][megadrive3-screenshot]
 
 ## How to use it
 
@@ -57,11 +59,15 @@ Building will generate the required files in the `app` folder, the `index.html` 
 
 ## Changelog
 
+###
+
+- Add a [configuration](src/configs/megadrive3.ts) for the Mega Drive mini 6B controller using the [3B design](img/megadrive3-0.3.0.gif).
+
 ### 0.2.0
 
-- Allow to fully customize the layout from a [config file](src/elite.ts).
+- Allow to fully customize the layout from a [config file](src/configs/elite.ts).
   Config file is still hardcoded tho, but it's a big step.
-- Add configuration file for the Mega Drive mini 6 button controller.
+- Add a [configuration](src/configs/megadrive6.ts) for the Mega Drive mini 6B controller.
 - Add support for:
   - Digital buttons with images
   - 1-axis shown as a digital button with CSS
@@ -80,4 +86,5 @@ It supports:
 - Digital buttons shown as 2-axis with CSS
 
 [elite-screenshot]: ./img/elite-0.2.0.gif 'HOTAS overlay preview'
-[megadrive-screenshot]: ./img/megadrive-0.2.0.gif 'Mega Drive overlay preview'
+[megadrive6-screenshot]: ./img/megadrive6-0.2.0.gif 'Mega Drive 6B overlay preview'
+[megadrive3-screenshot]: ./img/megadrive3-0.3.0.gif 'Mega Drive 3B overlay preview'
