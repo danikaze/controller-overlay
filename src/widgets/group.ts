@@ -1,5 +1,5 @@
 import { WidgetGroup } from '@src/constants';
-import { createElem, addLabels } from '@src/dom';
+import { createElem, addLabels, appendChildren } from '@src/dom';
 import { renderWidget } from '.';
 
 export function renderGroup(def: WidgetGroup): HTMLElement {
@@ -12,10 +12,8 @@ export function renderGroup(def: WidgetGroup): HTMLElement {
   addLabels(widget, def.labels);
 
   def.children.forEach((child) => {
-    const w = renderWidget(child);
-    if (w) {
-      widget.appendChild(w);
-    }
+    const children = renderWidget(child);
+    appendChildren(widget, children);
   });
 
   return widget;

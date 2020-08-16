@@ -1,6 +1,6 @@
 import { Config } from './constants';
 import { renderWidget } from './widgets';
-import { renderImage } from './dom';
+import { renderImage, appendChildren } from './dom';
 
 export function renderConfig(config: Config): void {
   const ROOT_ID = 'container';
@@ -22,8 +22,6 @@ export function renderConfig(config: Config): void {
   config.widgets &&
     config.widgets.forEach((def) => {
       const widget = renderWidget(def);
-      if (widget) {
-        parent.appendChild(widget);
-      }
+      appendChildren(parent, widget);
     });
 }

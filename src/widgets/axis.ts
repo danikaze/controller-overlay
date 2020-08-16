@@ -1,4 +1,4 @@
-import { WidgetAxis, InputAxis, InputAxisButton } from '@src/constants';
+import { WidgetAxis, InputAxis, InputButtonAsAxis } from '@src/constants';
 import { createElem, addLabels } from '@src/dom';
 import { onButtonChange, onAxisChange } from '@src/controllers';
 
@@ -74,14 +74,14 @@ export function renderAxis(def: WidgetAxis): HTMLElement {
 }
 
 function addBehavior(
-  input: InputAxis | InputAxisButton | undefined,
+  input: InputAxis | InputButtonAsAxis | undefined,
   type: 'x' | 'y',
   position: HTMLElement,
   axisSize: number
 ): void {
   if (!input) return;
 
-  if (isAxisButton(input)) {
+  if (isButtonAsAxis(input)) {
     addBehaviorButton(
       type,
       input.min.pad,
@@ -104,7 +104,9 @@ function addBehavior(
   }
 }
 
-function isAxisButton(o: InputAxis | InputAxisButton): o is InputAxisButton {
+function isButtonAsAxis(
+  o: InputAxis | InputButtonAsAxis
+): o is InputButtonAsAxis {
   return typeof (o as InputAxis).axis === 'undefined';
 }
 

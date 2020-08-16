@@ -54,11 +54,20 @@ export interface InputAxis {
   inverted?: boolean;
 }
 
-export interface InputAxisButton {
-  type: 'axis-button';
+export interface InputButtonAsAxis {
+  type: 'button-as-axis';
   min: InputButton;
   max: InputButton;
   inverted?: boolean;
+}
+
+export interface InputAxisAsButton {
+  type: 'axis-as-button';
+  pad: string;
+  axis: number;
+  // axis value must be inside [min, max] to be considered as pressed
+  min: number;
+  max: number;
 }
 
 export interface WidgetGroup extends WidgetBase<'group'> {
@@ -66,13 +75,14 @@ export interface WidgetGroup extends WidgetBase<'group'> {
 }
 
 export interface WidgetButton extends WidgetBase<'button'> {
-  input: InputButton;
+  input: InputButton | InputAxisAsButton;
+  images?: Image | Image[];
 }
 
 export interface WidgetAxis extends WidgetBase<'axis', 'position'> {
   gridlines?: number[];
   input: {
-    x?: InputAxis | InputAxisButton;
-    y?: InputAxis | InputAxisButton;
+    x?: InputAxis | InputButtonAsAxis;
+    y?: InputAxis | InputButtonAsAxis;
   };
 }

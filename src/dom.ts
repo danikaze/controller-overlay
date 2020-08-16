@@ -6,9 +6,21 @@ export interface DivOptions<T extends keyof HTMLElementTagNameMap = 'div'> {
   classes?: string | string[] | undefined;
   styles?: { [key: string]: string };
   parent?: HTMLElement;
+  children?: HTMLElement[];
   text?: string;
   data?: { [key: string]: string | number };
   attr?: { [key: string]: string | number };
+}
+
+export function appendChildren(
+  parent: HTMLElement,
+  children?: HTMLElement | HTMLElement[]
+): void {
+  if (!children) return;
+
+  (Array.isArray(children) ? children : [children]).forEach((child) => {
+    parent.appendChild(child);
+  });
 }
 
 export function createElem<T extends keyof HTMLElementTagNameMap = 'div'>(
@@ -41,6 +53,8 @@ export function createElem<T extends keyof HTMLElementTagNameMap = 'div'>(
   if (options.parent) {
     options.parent.appendChild(div);
   }
+
+  appendChildren(div, options.children);
 
   if (options.text) {
     div.innerText = options.text;
