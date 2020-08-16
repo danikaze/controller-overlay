@@ -3,7 +3,23 @@ export type PadMapping = { [pad: string]: string | RegExp };
 export interface Config {
   version: number;
   name: string;
+  images?: Image[];
   widgets: Widget[];
+}
+
+export interface Image {
+  src: string;
+  notes?: string;
+  // position of the image relative to the parent
+  top?: number | string;
+  left?: number | string;
+  // size of the displayed image (or its cropped area)
+  width?: number | string;
+  height?: number | string;
+  // if cropped, start point (default to 0,0)
+  offsetX?: number;
+  offsetY?: number;
+  zIndex?: number;
 }
 
 export type Widget = WidgetGroup | WidgetButton | WidgetAxis;

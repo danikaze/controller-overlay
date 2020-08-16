@@ -31,3 +31,8 @@ body.display {
 #info > div > span {
   font-weight: normal;
 }
+
+.img-container,
+.img-container img {
+  position: absolute;
+}

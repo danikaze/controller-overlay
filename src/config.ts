@@ -1,5 +1,6 @@
 import { Config } from './constants';
 import { renderWidget } from './widgets';
+import { renderImage } from './dom';
 
 export function renderConfig(config: Config): void {
   const ROOT_ID = 'container';
@@ -10,10 +11,19 @@ export function renderConfig(config: Config): void {
     parent.id = ROOT_ID;
   }
 
-  config.widgets.forEach((def) => {
-    const widget = renderWidget(def);
-    if (widget) {
-      parent.appendChild(widget);
-    }
-  });
+  config.images &&
+    config.images.forEach((def) => {
+      const img = renderImage(def);
+      if (img) {
+        parent.appendChild(img);
+      }
+    });
+
+  config.widgets &&
+    config.widgets.forEach((def) => {
+      const widget = renderWidget(def);
+      if (widget) {
+        parent.appendChild(widget);
+      }
+    });
 }
