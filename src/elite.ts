@@ -3,6 +3,7 @@ import { Config } from './constants';
 
 export const config: Config = {
   version: 1,
+  name: 'Logitech X-56 for  Elite Dangerous',
   widgets: [
     {
       type: 'group',

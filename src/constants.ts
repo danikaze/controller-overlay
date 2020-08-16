@@ -2,6 +2,7 @@ export type PadMapping = { [pad: string]: string | RegExp };
 
 export interface Config {
   version: number;
+  name: string;
   widgets: Widget[];
 }
 

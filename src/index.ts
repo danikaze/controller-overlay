@@ -10,4 +10,4 @@ if (url.searchParams.get('display')) {
 
 renderConfig(config);
 initControllers();
-updateInfo();
+updateInfo(config);

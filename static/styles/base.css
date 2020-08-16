@@ -25,3 +25,9 @@ body.display {
   padding: 10px;
   font-family: monospace;
 }
+#info > div {
+  font-weight: bold;
+}
+#info > div > span {
+  font-weight: normal;
+}
