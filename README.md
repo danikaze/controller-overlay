@@ -86,7 +86,7 @@ Building will generate the required files in the `app` folder, the `index.html` 
 
 ## Changelog
 
-###
+### 0.3.0
 
 - Added a [configuration](src/configs/megadrive3.ts) for the Mega Drive mini 6B controller using the [3B design](img/megadrive3-0.3.0.gif).
 - Added a [configuration](src/configs/sufami.ts) for the Buffalo controller with the [Japanese Super Nintendo overlay](img/sufami-0.3.0.gif).
