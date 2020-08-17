@@ -38,22 +38,19 @@ The html will show the Elite one by default, but adding `?config=megadrive` shou
 
 ## Support
 
-This project plans to support all kind of inputs. Those (and their progress) are:
+This project plans to support combinations of inputs and displays:
 
-- ☑ Digital buttons with CSS
-- ☑ Digital buttons with images
-- ☑ 1-axis with CSS
-- ☐ 1-Analog axis with images
-- ☑ 2-axis with CSS
-- ☐ 2-Analog axis with images
-- ☑ Digital buttons shown as 1-axis with CSS
-- ☑ Digital buttons shown as 2-axis with CSS
-- ☐ Digital buttons shown as 1-axis with images
-- ☐ Digital buttons shown as 2-axis with images
-- ☑ 1-axis shown as a digital button with CSS
-- ☑ 1-axis shown as a digital button with images
-- ☐ 1-axis shown as an analog button with CSS
-- ☐ 1-axis shown as an analog button with images
+|                      | Digital button | 1-axis | 2-axis |
+| -------------------- | -------------- | ------ | ------ |
+| CSS digital button   | ✔              | ✔      | ✖      |
+| CSS analog button    | △              | △      | ✖      |
+| CSS X-axis           | ✔              | ✔      | ✖      |
+| CSS Y-axis           | ✔              | ✔      | ✖      |
+| CSS XY-axis          | ✔              | ✖      | ✔      |
+| Image digital button | ✔              | ✔      | ✖      |
+| Image analog button  | ✖              | △      | ✖      |
+
+✔ = done | △ = planned | ✖ = not gonna happen
 
 ## Rebuilding
 
