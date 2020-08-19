@@ -14,6 +14,10 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 
 ![Preview screenshot][megadrive3-screenshot]
 
+`config=sufami`
+
+![Preview screenshot][sufami-screenshot]
+
 `config=nes`
 
 ![Preview screenshot][nes-screenshot]
@@ -81,6 +85,7 @@ Building will generate the required files in the `app` folder, the `index.html` 
 ###
 
 - Added a [configuration](src/configs/megadrive3.ts) for the Mega Drive mini 6B controller using the [3B design](img/megadrive3-0.3.0.gif).
+- Added a [configuration](src/configs/sufami.ts) for the Buffalo controller with the [Japanese Super Nintendo overlay](img/sufami-0.3.0.gif).
 - Added a [configuration](src/configs/nes.ts) for the Mega Drive mini 6B controller using the [NES](img/nes-0.3.0.gif).
 - Added a [configuration](src/configs/famicon.ts) for the Mega Drive mini 6B controller using the [Famicon](img/famicon-0.3.0.gif).
 - Added a [configuration](src/configs/mastersystem.ts) for the Mega Drive mini 6B controller using the [Master System](img/mastersystem-0.3.0.gif).
@@ -111,6 +116,7 @@ It supports:
 [elite-screenshot]: ./img/elite-0.2.0.gif 'HOTAS overlay preview'
 [megadrive6-screenshot]: ./img/megadrive6-0.2.0.gif 'Mega Drive 6B overlay preview'
 [megadrive3-screenshot]: ./img/megadrive3-0.3.0.gif 'Mega Drive 3B overlay preview'
+[sufami-screenshot]: ./img/sufami-0.3.0.gif 'Sufami overlay preview'
 [nes-screenshot]: ./img/nes-0.3.0.gif 'NES overlay preview'
 [famicon-screenshot]: ./img/famicon-0.3.0.gif 'Famicon overlay preview'
 [mastersystem-screenshot]: ./img/mastersystem-0.3.0.gif 'Master System overlay preview'
