@@ -10,6 +10,7 @@ import { config as nesConfig } from './configs/nes';
 import { config as mastersystemConfig } from './configs/mastersystem';
 import { config as mastersystemRedConfig } from './configs/mastersystem-red';
 import { config as sufamiConfig } from './configs/sufami';
+import { config as snesConfig } from './configs/snes';
 
 const url = new URL(location.href);
 if (url.searchParams.get('display')) {
@@ -31,6 +32,7 @@ function selectConfig(param: string): Config {
     mastersystem: mastersystemConfig,
     mastersystemred: mastersystemRedConfig,
     sufami: sufamiConfig,
+    snes: snesConfig,
   };
 
   return mapping[param.toLowerCase()] || eliteConfig;
