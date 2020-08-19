@@ -8,8 +8,8 @@ export interface DivOptions<T extends keyof HTMLElementTagNameMap = 'div'> {
   parent?: HTMLElement;
   children?: HTMLElement[];
   text?: string;
-  data?: { [key: string]: string | number };
-  attr?: { [key: string]: string | number };
+  data?: { [key: string]: string | number | boolean | undefined };
+  attr?: { [key: string]: string | number | boolean | undefined };
 }
 
 export function appendChildren(
@@ -68,6 +68,7 @@ export function createElem<T extends keyof HTMLElementTagNameMap = 'div'>(
 
   if (options.attr) {
     Object.entries(options.attr).forEach(([key, value]) => {
+      if (value === undefined) return;
       div.setAttribute(key, String(value));
     });
   }

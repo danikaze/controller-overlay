@@ -1,14 +1,41 @@
 import { Config } from './constants';
+import { createElem } from './dom';
 
-export function updateInfo(config: Config) {
-  updateConfig(config);
+export function updateInfo(
+  config: Config,
+  mappings: { [ket: string]: Config }
+) {
+  updateConfig(config, mappings);
   updateSize();
   updateUrl();
   updateUa();
 }
 
-function updateConfig(config: Config) {
-  setInfoElement('config-name', config.name);
+function updateConfig(
+  activeConfig: Config,
+  mappings: { [ket: string]: Config }
+) {
+  const optionElem = document.querySelector<HTMLSelectElement>('.config-name')!;
+  Object.entries(mappings).forEach(([key, config]) => {
+    createElem({
+      type: 'option',
+      text: config.name,
+      parent: optionElem,
+      data: {
+        config: key,
+      },
+      attr: {
+        selected: activeConfig === config ? true : undefined,
+      },
+    });
+  });
+
+  optionElem.addEventListener('change', () => {
+    const url = new URL(location.href);
+    const selectedOption = optionElem.selectedOptions[0];
+    url.searchParams.set('config', selectedOption.dataset.config as string);
+    location.href = url.href;
+  });
 }
 
 function updateSize() {

@@ -12,28 +12,25 @@ import { config as mastersystemRedConfig } from './configs/mastersystem-red';
 import { config as sufamiConfig } from './configs/sufami';
 import { config as snesConfig } from './configs/snes';
 
+const configMapping: { [ket: string]: Config } = {
+  elite: eliteConfig,
+  megadrive3: megaDrive3config,
+  megadrive6: megaDrive6config,
+  famicon: famiconConfig,
+  nes: nesConfig,
+  mastersystem: mastersystemConfig,
+  mastersystemred: mastersystemRedConfig,
+  sufami: sufamiConfig,
+  snes: snesConfig,
+};
+
 const url = new URL(location.href);
 if (url.searchParams.get('display')) {
   document.body.classList.add('display');
 }
-const config = selectConfig(url.searchParams.get('config') || 'elite');
+const param = url.searchParams.get('config') || 'elite';
+const config = configMapping[param.toLowerCase()] || eliteConfig;
 
 renderConfig(config);
 initControllers();
-setTimeout(() => updateInfo(config), 0);
-
-function selectConfig(param: string): Config {
-  const mapping: { [ket: string]: Config } = {
-    elite: eliteConfig,
-    megadrive3: megaDrive3config,
-    megadrive6: megaDrive6config,
-    famicon: famiconConfig,
-    nes: nesConfig,
-    mastersystem: mastersystemConfig,
-    mastersystemred: mastersystemRedConfig,
-    sufami: sufamiConfig,
-    snes: snesConfig,
-  };
-
-  return mapping[param.toLowerCase()] || eliteConfig;
-}
+setTimeout(() => updateInfo(config, configMapping), 0);

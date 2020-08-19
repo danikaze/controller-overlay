@@ -95,6 +95,7 @@ Building will generate the required files in the `app` folder, the `index.html` 
 - Added a [configuration](src/configs/famicon.ts) for the Mega Drive mini 6B controller using the [Famicon](img/famicon-0.3.0.gif).
 - Added a [configuration](src/configs/mastersystem.ts) for the Mega Drive mini 6B controller using the [Master System](img/mastersystem-0.3.0.gif).
 - Added a variation in red for the [configuration](src/configs/mastersystem-red.ts) of the Mega Drive mini 6B controller using the [Master System](img/mastersystemred-0.3.0.gif).
+- Added a dropdown list to select the configuration without having to edit the URL param
 
 ### 0.2.0
 
