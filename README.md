@@ -22,6 +22,10 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 
 ![Preview screenshot][famicon-screenshot]
 
+`config=mastersystem`
+
+![Preview screenshot][mastersystem-screenshot]
+
 ## How to use it
 
 Download the [latest version](https://github.com/danikaze/controller-overlay/releases/latest) and open `index.html`. This should display a webpage like the one shown in the screenshot.
@@ -75,6 +79,7 @@ Building will generate the required files in the `app` folder, the `index.html` 
 - Added a [configuration](src/configs/megadrive3.ts) for the Mega Drive mini 6B controller using the [3B design](img/megadrive3-0.3.0.gif).
 - Added a [configuration](src/configs/nes.ts) for the Mega Drive mini 6B controller using the [NES](img/nes-0.3.0.gif).
 - Added a [configuration](src/configs/famicon.ts) for the Mega Drive mini 6B controller using the [Famicon](img/famicon-0.3.0.gif).
+- Added a [configuration](src/configs/mastersystem.ts) for the Mega Drive mini 6B controller using the [Master System](img/mastersystem-0.3.0.gif).
 
 ### 0.2.0
 
@@ -103,3 +108,4 @@ It supports:
 [megadrive3-screenshot]: ./img/megadrive3-0.3.0.gif 'Mega Drive 3B overlay preview'
 [nes-screenshot]: ./img/nes-0.3.0.gif 'NES overlay preview'
 [famicon-screenshot]: ./img/famicon-0.3.0.gif 'Famicon overlay preview'
+[mastersystem-screenshot]: ./img/mastersystem-0.3.0.gif 'Master System overlay preview'

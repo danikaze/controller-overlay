@@ -7,6 +7,7 @@ import { config as megaDrive6config } from './configs/megadrive6';
 import { config as megaDrive3config } from './configs/megadrive3';
 import { config as famiconConfig } from './configs/famicon';
 import { config as nesConfig } from './configs/nes';
+import { config as mastersystemConfig } from './configs/mastersystem';
 
 const url = new URL(location.href);
 if (url.searchParams.get('display')) {
@@ -25,6 +26,7 @@ function selectConfig(param?: string | null): Config {
     megadrive6: megaDrive6config,
     famicon: famiconConfig,
     nes: nesConfig,
+    mastersystem: mastersystemConfig,
   };
 
   return mapping[param!] || eliteConfig;
