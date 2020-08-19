@@ -3,7 +3,7 @@ import { Config } from '../constants';
 
 export const config: Config = {
   version: 1,
-  name: 'SEGA Mega Drive 6B as Famicon',
+  name: 'iBuffalo controller as Famicon',
   images: [
     {
       src: 'img/famicon/bg.png',
@@ -14,25 +14,11 @@ export const config: Config = {
   widgets: [
     {
       type: 'button',
-      name: 'Start Button',
+      name: 'Select',
       input: {
         type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 9,
-      },
-      images: {
-        src: 'img/famicon/long.png',
-        zIndex: 2,
-        left: 120,
-        top: 86,
-      },
-    },
-    {
-      type: 'button',
-      name: 'Mode button (as Select button)',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
         button: 8,
       },
       images: {
@@ -44,13 +30,28 @@ export const config: Config = {
     },
     {
       type: 'button',
+      name: 'Start Button',
+      input: {
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 9,
+      },
+      images: {
+        src: 'img/famicon/long.png',
+        zIndex: 2,
+        left: 120,
+        top: 86,
+      },
+    },
+    {
+      type: 'button',
       name: 'Up button',
       input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 1,
-        min: -Infinity,
-        max: -0.5,
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 12,
       },
       images: {
         src: 'img/famicon/up-down.png',
@@ -65,11 +66,10 @@ export const config: Config = {
       type: 'button',
       name: 'Down button',
       input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 1,
-        min: 0.5,
-        max: Infinity,
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 13,
       },
       images: {
         src: 'img/famicon/up-down.png',
@@ -85,11 +85,10 @@ export const config: Config = {
       type: 'button',
       name: 'Left button',
       input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 0,
-        min: -Infinity,
-        max: -0.5,
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 14,
       },
       images: {
         src: 'img/famicon/left-right.png',
@@ -104,11 +103,10 @@ export const config: Config = {
       type: 'button',
       name: 'Right button',
       input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 0,
-        min: 0.5,
-        max: Infinity,
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 15,
       },
       images: {
         src: 'img/famicon/left-right.png',
@@ -125,8 +123,9 @@ export const config: Config = {
       name: 'A button',
       input: {
         type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 2,
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 1,
       },
       images: {
         src: 'img/famicon/round.png',
@@ -140,8 +139,9 @@ export const config: Config = {
       name: 'B button',
       input: {
         type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 1,
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 0,
       },
       images: {
         src: 'img/famicon/round.png',
@@ -152,11 +152,12 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'C button (as A button)',
+      name: 'X button as A button',
       input: {
         type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 5,
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 3,
       },
       images: {
         src: 'img/famicon/round.png',
@@ -167,17 +168,18 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'X button (as Select button)',
+      name: 'Y button as B button',
       input: {
         type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 3,
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 2,
       },
       images: {
-        src: 'img/famicon/long.png',
+        src: 'img/famicon/round.png',
         zIndex: 2,
-        left: 92,
-        top: 86,
+        left: 164,
+        top: 82,
       },
     },
   ],
