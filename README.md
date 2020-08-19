@@ -14,6 +14,14 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 
 ![Preview screenshot][megadrive3-screenshot]
 
+`config=sufami`
+
+![Preview screenshot][sufami-screenshot]
+
+`config=snes`
+
+![Preview screenshot][snes-screenshot]
+
 `config=nes`
 
 ![Preview screenshot][nes-screenshot]
@@ -21,6 +29,14 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 `config=famicon`
 
 ![Preview screenshot][famicon-screenshot]
+
+`config=mastersystem`
+
+![Preview screenshot][mastersystem-screenshot]
+
+`config=mastersystemred`
+
+![Preview screenshot][mastersystemred-screenshot]
 
 ## How to use it
 
@@ -38,22 +54,19 @@ The html will show the Elite one by default, but adding `?config=megadrive` shou
 
 ## Support
 
-This project plans to support all kind of inputs. Those (and their progress) are:
+This project plans to support combinations of inputs and displays:
 
-- ☑ Digital buttons with CSS
-- ☑ Digital buttons with images
-- ☑ 1-axis with CSS
-- ☐ 1-Analog axis with images
-- ☑ 2-axis with CSS
-- ☐ 2-Analog axis with images
-- ☑ Digital buttons shown as 1-axis with CSS
-- ☑ Digital buttons shown as 2-axis with CSS
-- ☐ Digital buttons shown as 1-axis with images
-- ☐ Digital buttons shown as 2-axis with images
-- ☑ 1-axis shown as a digital button with CSS
-- ☑ 1-axis shown as a digital button with images
-- ☐ 1-axis shown as an analog button with CSS
-- ☐ 1-axis shown as an analog button with images
+|                      | Digital button | 1-axis | 2-axis |
+| -------------------- | -------------- | ------ | ------ |
+| CSS digital button   | ✔              | ✔      | ✖      |
+| CSS analog button    | △              | △      | ✖      |
+| CSS X-axis           | ✔              | ✔      | ✖      |
+| CSS Y-axis           | ✔              | ✔      | ✖      |
+| CSS XY-axis          | ✔              | ✖      | ✔      |
+| Image digital button | ✔              | ✔      | ✖      |
+| Image analog button  | ✖              | △      | ✖      |
+
+✔ = done | △ = planned | ✖ = not gonna happen
 
 ## Rebuilding
 
@@ -73,11 +86,16 @@ Building will generate the required files in the `app` folder, the `index.html` 
 
 ## Changelog
 
-###
+### 0.3.0
 
 - Added a [configuration](src/configs/megadrive3.ts) for the Mega Drive mini 6B controller using the [3B design](img/megadrive3-0.3.0.gif).
+- Added a [configuration](src/configs/sufami.ts) for the Buffalo controller with the [Japanese Super Nintendo overlay](img/sufami-0.3.0.gif).
+- Added a [configuration](src/configs/snes.ts) for the Buffalo controller with the [American Super Nintendo overlay](img/snes-0.3.0.gif).
 - Added a [configuration](src/configs/nes.ts) for the Mega Drive mini 6B controller using the [NES](img/nes-0.3.0.gif).
 - Added a [configuration](src/configs/famicon.ts) for the Mega Drive mini 6B controller using the [Famicon](img/famicon-0.3.0.gif).
+- Added a [configuration](src/configs/mastersystem.ts) for the Mega Drive mini 6B controller using the [Master System](img/mastersystem-0.3.0.gif).
+- Added a variation in red for the [configuration](src/configs/mastersystem-red.ts) of the Mega Drive mini 6B controller using the [Master System](img/mastersystemred-0.3.0.gif).
+- Added a dropdown list to select the configuration without having to edit the URL param
 
 ### 0.2.0
 
@@ -104,5 +122,9 @@ It supports:
 [elite-screenshot]: ./img/elite-0.2.0.gif 'HOTAS overlay preview'
 [megadrive6-screenshot]: ./img/megadrive6-0.2.0.gif 'Mega Drive 6B overlay preview'
 [megadrive3-screenshot]: ./img/megadrive3-0.3.0.gif 'Mega Drive 3B overlay preview'
+[sufami-screenshot]: ./img/sufami-0.3.0.gif 'Sufami overlay preview'
+[snes-screenshot]: ./img/snes-0.3.0.gif 'Sufami overlay preview'
 [nes-screenshot]: ./img/nes-0.3.0.gif 'NES overlay preview'
 [famicon-screenshot]: ./img/famicon-0.3.0.gif 'Famicon overlay preview'
+[mastersystem-screenshot]: ./img/mastersystem-0.3.0.gif 'Master System overlay preview'
+[mastersystemred-screenshot]: ./img/mastersystemred-0.3.0.gif 'Master System overlay preview (red variation)'

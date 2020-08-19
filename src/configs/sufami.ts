@@ -3,10 +3,10 @@ import { Config } from '../constants';
 
 export const config: Config = {
   version: 1,
-  name: 'iBuffalo controller as Famicon',
+  name: 'iBuffalo as Japanese Super Nintendo',
   images: [
     {
-      src: 'img/famicon/bg.png',
+      src: 'img/sufami/bg.png',
       notes: 'Base gamepad image',
       zIndex: 1,
     },
@@ -14,7 +14,7 @@ export const config: Config = {
   widgets: [
     {
       type: 'button',
-      name: 'Select',
+      name: 'Select button',
       input: {
         type: 'button',
         pad:
@@ -22,10 +22,14 @@ export const config: Config = {
         button: 8,
       },
       images: {
-        src: 'img/famicon/long.png',
+        src: 'img/sufami/pressed.png',
         zIndex: 2,
-        left: 92,
-        top: 86,
+        left: 96,
+        top: 72,
+        width: 20,
+        height: 20,
+        offsetX: 96,
+        offsetY: 72,
       },
     },
     {
@@ -38,10 +42,14 @@ export const config: Config = {
         button: 9,
       },
       images: {
-        src: 'img/famicon/long.png',
+        src: 'img/sufami/pressed.png',
         zIndex: 2,
         left: 120,
-        top: 86,
+        top: 72,
+        width: 20,
+        height: 20,
+        offsetX: 120,
+        offsetY: 72,
       },
     },
     {
@@ -54,10 +62,10 @@ export const config: Config = {
         button: 12,
       },
       images: {
-        src: 'img/famicon/up-down.png',
+        src: 'img/sufami/up-down.png',
         zIndex: 2,
-        left: 40,
-        top: 46,
+        left: 44,
+        top: 48,
         width: 16,
         height: 28,
       },
@@ -72,10 +80,10 @@ export const config: Config = {
         button: 13,
       },
       images: {
-        src: 'img/famicon/up-down.png',
+        src: 'img/sufami/up-down.png',
         zIndex: 2,
-        left: 40,
-        top: 74,
+        left: 44,
+        top: 76,
         width: 16,
         height: 28,
         offsetY: 28,
@@ -91,10 +99,10 @@ export const config: Config = {
         button: 14,
       },
       images: {
-        src: 'img/famicon/left-right.png',
+        src: 'img/sufami/left-right.png',
         zIndex: 2,
-        left: 20,
-        top: 66,
+        left: 24,
+        top: 68,
         width: 28,
         height: 16,
       },
@@ -109,10 +117,10 @@ export const config: Config = {
         button: 15,
       },
       images: {
-        src: 'img/famicon/left-right.png',
+        src: 'img/sufami/left-right.png',
         zIndex: 2,
-        left: 48,
-        top: 66,
+        left: 52,
+        top: 68,
         width: 28,
         height: 16,
         offsetX: 28,
@@ -128,10 +136,14 @@ export const config: Config = {
         button: 1,
       },
       images: {
-        src: 'img/famicon/round.png',
+        src: 'img/sufami/pressed.png',
         zIndex: 2,
-        left: 196,
-        top: 82,
+        left: 200,
+        top: 68,
+        width: 20,
+        height: 20,
+        offsetX: 200,
+        offsetY: 68,
       },
     },
     {
@@ -144,15 +156,19 @@ export const config: Config = {
         button: 0,
       },
       images: {
-        src: 'img/famicon/round.png',
+        src: 'img/sufami/pressed.png',
         zIndex: 2,
-        left: 164,
-        top: 82,
+        left: 180,
+        top: 88,
+        width: 20,
+        height: 20,
+        offsetX: 180,
+        offsetY: 88,
       },
     },
     {
       type: 'button',
-      name: 'X button as A button',
+      name: 'X button',
       input: {
         type: 'button',
         pad:
@@ -160,15 +176,19 @@ export const config: Config = {
         button: 3,
       },
       images: {
-        src: 'img/famicon/round.png',
+        src: 'img/sufami/pressed.png',
         zIndex: 2,
-        left: 196,
-        top: 82,
+        left: 180,
+        top: 48,
+        width: 20,
+        height: 20,
+        offsetX: 180,
+        offsetY: 48,
       },
     },
     {
       type: 'button',
-      name: 'Y button as B button',
+      name: 'Y button',
       input: {
         type: 'button',
         pad:
@@ -176,10 +196,54 @@ export const config: Config = {
         button: 2,
       },
       images: {
-        src: 'img/famicon/round.png',
+        src: 'img/sufami/pressed.png',
         zIndex: 2,
-        left: 164,
-        top: 82,
+        left: 160,
+        top: 68,
+        width: 20,
+        height: 20,
+        offsetX: 160,
+        offsetY: 68,
+      },
+    },
+    {
+      type: 'button',
+      name: 'L button',
+      input: {
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 4,
+      },
+      images: {
+        src: 'img/sufami/pressed.png',
+        zIndex: 2,
+        left: 28,
+        top: 12,
+        width: 60,
+        height: 16,
+        offsetX: 28,
+        offsetY: 12,
+      },
+    },
+    {
+      type: 'button',
+      name: 'R button',
+      input: {
+        type: 'button',
+        pad:
+          'USB,2-axis 8-button gamepad   (STANDARD GAMEPAD Vendor: 0583 Product: 2060)',
+        button: 5,
+      },
+      images: {
+        src: 'img/sufami/pressed.png',
+        zIndex: 2,
+        left: 152,
+        top: 12,
+        width: 60,
+        height: 16,
+        offsetX: 152,
+        offsetY: 12,
       },
     },
   ],
