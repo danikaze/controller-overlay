@@ -11,6 +11,7 @@ import { config as mastersystemConfig } from './configs/mastersystem';
 import { config as mastersystemRedConfig } from './configs/mastersystem-red';
 import { config as sufamiConfig } from './configs/sufami';
 import { config as snesConfig } from './configs/snes';
+import { useStyle } from './style';
 
 const configMapping: { [ket: string]: Config } = {
   elite: eliteConfig,
@@ -25,6 +26,7 @@ const configMapping: { [ket: string]: Config } = {
 };
 
 const url = new URL(location.href);
+
 if (url.searchParams.get('display')) {
   document.body.classList.add('display');
 }
@@ -34,3 +36,5 @@ const config = configMapping[param.toLowerCase()] || eliteConfig;
 renderConfig(config);
 initControllers();
 setTimeout(() => updateInfo(config, configMapping), 0);
+
+useStyle(url.searchParams.get('style'));

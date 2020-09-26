@@ -1,0 +1,10 @@
+/**
+ * Skin-like style
+ * use it appending style=orange to the url
+ * or with the style field in the config file
+ */
+:root {
+  --main-color: #d66800;
+  --active-color: #ffc107;
+  --axis-color: #633b00;
+}
