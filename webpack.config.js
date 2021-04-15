@@ -1,5 +1,4 @@
 const { resolve } = require('path');
-const { NamedModulesPlugin } = require('webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -7,11 +6,10 @@ function absPath(pathFromProjectRoot) {
   return resolve(__dirname, pathFromProjectRoot);
 }
 
-module.exports = (env) => {
-  const isProduction = env !== 'dev';
+module.exports = (options) => {
   const baseConfig = {
-    mode: isProduction ? 'production' : 'development',
-    watch: !isProduction,
+    mode: options.dev ? 'development' : 'production',
+    watch: options.dev,
 
     entry: absPath('src/index.ts'),
 
@@ -30,7 +28,8 @@ module.exports = (env) => {
     devtool: 'source-map',
 
     optimization: {
-      minimize: false,
+      minimize: !options.dev,
+      moduleIds: options.dev ? 'named' : false,
     },
 
     resolve: {
@@ -64,10 +63,6 @@ module.exports = (env) => {
       }),
     ],
   };
-
-  if (!isProduction) {
-    baseConfig.plugins.push(new NamedModulesPlugin());
-  }
 
   return baseConfig;
 };
