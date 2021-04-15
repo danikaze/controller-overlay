@@ -3,28 +3,110 @@ import { Config } from '../constants';
 
 export const config: Config = {
   version: 1,
-  name: 'Logitech X-56 for Elite Dangerous',
+  style: 'sws',
+  name: 'Logitech X-56 for Star Wars Squadrons',
   widgets: [
     {
       type: 'group',
-      name: 'Buttons',
+      name: 'Hardpoints',
       styles: {
         widget: {
           top: '0px',
-          left: '200px',
+          left: '15px',
         },
       },
       children: [
         {
           type: 'button',
-          name: 'Boost',
+          name: 'Left aux',
           labels: {
-            center: 'BOOST',
+            center: 'LEFT',
           },
           styles: {
             widget: {
               top: '0px',
               left: '0px',
+              width: '45px',
+            },
+          },
+          input: {
+            type: 'button',
+            pad:
+              'Saitek Pro Flight X-56 Rhino Throttle (Vendor: 0738 Product: a221)',
+            button: 3,
+          },
+        },
+        {
+          type: 'button',
+          name: 'Main fire',
+          labels: {
+            center: 'FIRE',
+          },
+          styles: {
+            widget: {
+              top: '0px',
+              left: '50px',
+              width: '70px',
+            },
+          },
+          input: {
+            type: 'button',
+            pad:
+              'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
+            button: 0,
+          },
+        },
+        {
+          type: 'button',
+          name: 'Right aux',
+          labels: {
+            center: 'RIGHT',
+          },
+          styles: {
+            widget: {
+              top: '0px',
+              left: '125px',
+              width: '45px',
+            },
+          },
+          input: {
+            type: 'button',
+            pad:
+              'Saitek Pro Flight X-56 Rhino Throttle (Vendor: 0738 Product: a221)',
+            button: 4,
+          },
+        },
+        {
+          type: 'button',
+          name: 'Countermeasures',
+          labels: {
+            center: 'COUNTER',
+          },
+          styles: {
+            widget: {
+              top: '40px',
+              left: '90px',
+              width: '80px',
+            },
+          },
+          input: {
+            type: 'button',
+            pad:
+              'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
+            button: 2,
+          },
+        },
+        {
+          type: 'button',
+          name: 'Boost/Drift',
+          labels: {
+            center: 'BOOST/RIFT',
+          },
+          styles: {
+            widget: {
+              top: '40px',
+              left: '0px',
+              width: '80px',
             },
           },
           input: {
@@ -34,109 +116,14 @@ export const config: Config = {
             button: 0,
           },
         },
-        {
-          type: 'button',
-          name: 'Chaff',
-          labels: {
-            center: 'CHAFF',
-          },
-          styles: {
-            widget: {
-              top: '0px',
-              left: '60px',
-            },
-          },
-          input: {
-            type: 'button',
-            pad:
-              'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
-            button: 2,
-          },
-        },
-        {
-          type: 'button',
-          name: 'ECM',
-          labels: {
-            center: 'ECM',
-          },
-          styles: {
-            widget: {
-              top: '40px',
-              left: '0px',
-            },
-          },
-          input: {
-            type: 'button',
-            pad:
-              'Saitek Pro Flight X-56 Rhino Throttle (Vendor: 0738 Product: a221)',
-            button: 2,
-          },
-        },
-        {
-          type: 'button',
-          name: 'Shield Charge Boost',
-          labels: {
-            center: 'SHIELD BOOST',
-          },
-          styles: {
-            widget: {
-              top: '40px',
-              left: '60px',
-            },
-          },
-          input: {
-            type: 'button',
-            pad:
-              'Saitek Pro Flight X-56 Rhino Throttle (Vendor: 0738 Product: a221)',
-            button: 1,
-          },
-        },
-        {
-          type: 'button',
-          name: 'Heat Sink',
-          labels: {
-            center: 'HEAT SINK',
-          },
-          styles: {
-            widget: {
-              top: '80px',
-              left: '0px',
-            },
-          },
-          input: {
-            type: 'button',
-            pad:
-              'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
-            button: 4,
-          },
-        },
-        {
-          type: 'button',
-          name: 'flight-assist',
-          labels: {
-            center: 'FA Off',
-          },
-          styles: {
-            widget: {
-              top: '80px',
-              left: '60px',
-            },
-          },
-          input: {
-            type: 'button',
-            pad:
-              'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
-            button: 5,
-          },
-        },
       ],
     },
     {
-      name: 'Thrusters and Throttle',
+      name: 'Ship control',
       type: 'group',
       styles: {
         widget: {
-          top: '0px',
+          top: '80px',
           left: '0px',
         },
       },
@@ -145,12 +132,12 @@ export const config: Config = {
           type: 'axis',
           name: 'Throttle',
           labels: {
-            right: 'THROTTLE',
+            left: 'THROTTLE',
           },
           styles: {
             widget: {
-              top: '0px',
-              left: '0px',
+              top: '45px',
+              left: '15px',
               width: '50px',
             },
             position: {
@@ -172,86 +159,14 @@ export const config: Config = {
         },
         {
           type: 'axis',
-          name: 'Thrusters',
-          labels: {
-            top: 'LATERAL',
-            right: 'VERTICAL',
-          },
-          styles: {
-            widget: {
-              top: '190px',
-              left: '0px',
-            },
-          },
-          gridlines: [50],
-          input: {
-            x: {
-              type: 'axis',
-              pad:
-                'Saitek Pro Flight X-56 Rhino Throttle (Vendor: 0738 Product: a221)',
-              axis: 3,
-            },
-            y: {
-              type: 'axis',
-              pad:
-                'Saitek Pro Flight X-56 Rhino Throttle (Vendor: 0738 Product: a221)',
-              axis: 4,
-            },
-          },
-        },
-        {
-          type: 'axis',
-          name: 'Thrust',
-          labels: {
-            right: 'THRUST',
-          },
-          styles: {
-            widget: {
-              top: '0px',
-              left: '90px',
-            },
-          },
-          gridlines: [50],
-          input: {
-            y: {
-              type: 'button-as-axis',
-              min: {
-                type: 'button',
-                pad:
-                  'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
-                button: 8,
-              },
-              max: {
-                type: 'button',
-                pad:
-                  'Saitek Pro Flight X-56 Rhino Stick (Vendor: 0738 Product: 2221)',
-                button: 6,
-              },
-            },
-          },
-        },
-      ],
-    },
-    {
-      name: 'Direction',
-      type: 'group',
-      styles: {
-        widget: {
-          top: '140px',
-          left: '200px',
-        },
-      },
-      children: [
-        {
-          type: 'axis',
           name: 'Yaw',
           labels: {
             top: 'YAW',
           },
           styles: {
             widget: {
-              top: '0px',
-              left: '0px',
+              top: '15px',
+              left: '75px',
             },
           },
           gridlines: [50],
@@ -268,13 +183,13 @@ export const config: Config = {
           type: 'axis',
           name: 'Stick',
           labels: {
-            top: 'PITCH',
-            left: 'ROLL',
+            bottom: 'PITCH',
+            right: 'ROLL',
           },
           styles: {
             widget: {
-              top: '50px',
-              left: '0px',
+              top: '45px',
+              left: '75px',
             },
           },
           gridlines: [50],
