@@ -1,7 +1,7 @@
 import { initControllers } from './controllers';
 import { updateInfo } from './info';
 import { renderConfig } from './config';
-import { Config } from './constants';
+import { Config } from './interfaces';
 import { config as eliteConfig } from './configs/elite';
 import { config as swsConfig } from './configs/sws';
 import { config as megaDrive6config } from './configs/megadrive6';

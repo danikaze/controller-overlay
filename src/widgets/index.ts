@@ -1,4 +1,4 @@
-import { Widget } from '@src/constants';
+import { Widget } from '@src/interfaces';
 import { renderButton } from './button';
 import { renderAxis } from './axis';
 import { renderGroup } from './group';

@@ -1,4 +1,4 @@
-import { WidgetAxis, InputAxis, InputButtonAsAxis } from '@src/constants';
+import { WidgetAxis, InputAxis, InputButtonAsAxis } from '@src/interfaces';
 import { createElem, addLabels } from '@src/dom';
 import { onButtonChange, onAxisChange } from '@src/controllers';
 

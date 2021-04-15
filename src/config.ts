@@ -1,4 +1,4 @@
-import { Config } from './constants';
+import { Config } from './interfaces';
 import { renderWidget } from './widgets';
 import { renderImage, appendChildren } from './dom';
 import { useStyle } from './style';

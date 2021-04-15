@@ -1,4 +1,4 @@
-import { WidgetLabel, Image } from './constants';
+import { WidgetLabel, Image } from './interfaces';
 
 export interface DivOptions<T extends keyof HTMLElementTagNameMap = 'div'> {
   id?: string;

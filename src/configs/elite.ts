@@ -1,5 +1,5 @@
 // tslint:disable: no-magic-numbers
-import { Config } from '../constants';
+import { Config } from '../interfaces';
 
 export const config: Config = {
   version: 1,
