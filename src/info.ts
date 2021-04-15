@@ -1,4 +1,4 @@
-import { Config } from './constants';
+import { Config } from './interfaces';
 import { createElem } from './dom';
 
 export function updateInfo(

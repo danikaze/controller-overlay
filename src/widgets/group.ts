@@ -1,4 +1,4 @@
-import { WidgetGroup } from '@src/constants';
+import { WidgetGroup } from '@src/interfaces';
 import { createElem, addLabels, appendChildren } from '@src/dom';
 import { renderWidget } from '.';
 
