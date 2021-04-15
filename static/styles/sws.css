@@ -1,0 +1,10 @@
+/**
+ * Skin-like style
+ * use it appending style=white to the url
+ * or with the style field in the config file
+ */
+:root {
+  --main-color: #fff;
+  --active-color: #97f3ff;
+  --axis-color: #646464;
+}

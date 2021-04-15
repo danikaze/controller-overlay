@@ -18,10 +18,6 @@
   --transition-exit-time: 1000ms;
 }
 
-.orange {
-  --main-color: #d66800;
-}
-
 .widget {
   position: absolute;
   display: flex;
