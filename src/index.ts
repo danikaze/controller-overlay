@@ -2,6 +2,7 @@ import { initControllers } from './controllers';
 import { updateInfo } from './info';
 import { renderConfig } from './config';
 import { Config } from './interfaces';
+import { config as arcade4Config } from './configs/arcade4';
 import { config as eliteConfig } from './configs/elite';
 import { config as swsConfig } from './configs/sws';
 import { config as megaDrive6config } from './configs/megadrive6';
@@ -15,6 +16,7 @@ import { config as snesConfig } from './configs/snes';
 import { useStyle } from './style';
 
 const configMapping: { [ket: string]: Config } = {
+  'arcade4-4': arcade4Config,
   elite: eliteConfig,
   sws: swsConfig,
   megadrive3: megaDrive3config,

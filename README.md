@@ -38,6 +38,10 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 
 ![Preview screenshot][mastersystemred-screenshot]
 
+`config=arcade8`
+
+![Preview screenshot][arcade8-screenshot]
+
 ## How to use it
 
 Download the [latest version](https://github.com/danikaze/controller-overlay/releases/latest) and open `index.html`. This should display a webpage like the one shown in the screenshot.
@@ -50,7 +54,7 @@ First version is just a PoC (_Proof of Concept_) where the shown controls are wh
 
 Later on, I added some other configs as shown in the top of this document
 
-The html will show the Elite one by default, but adding `?config=megadrive` should show any other available one.
+The html will show the Elite one by default, but adding `?config=megadrive` should show any other available one (and now it can be chosen with a select input if `display=1` is not added).
 
 ## Support
 
@@ -63,7 +67,7 @@ This project plans to support combinations of inputs and displays:
 | CSS X-axis           | ✔              | ✔      | ✖      |
 | CSS Y-axis           | ✔              | ✔      | ✖      |
 | CSS XY-axis          | ✔              | ✖      | ✔      |
-| Image digital button | ✔              | ✔      | ✖      |
+| Image digital button | ✔              | ✔      | ✔      |
 | Image analog button  | ✖              | △      | ✖      |
 
 ✔ = done | △ = planned | ✖ = not gonna happen
@@ -85,6 +89,11 @@ npm build
 Building will generate the required files in the `app` folder, the `index.html` file is the one to use.
 
 ## Changelog
+
+### 0.5.0
+
+- Added support for logic configuration (`AND`, `OR`, `NOT`) - i.e: to show an image when 2 buttons are pressed at the same time (diagonals), etc.
+- Added a [configuration](src/configs/arcade8.ts) for the Buffalo controller with the [Arcade 4+4 stick design](img/arcade8-0.5.0.gif).
 
 ### 0.4.0
 
@@ -132,3 +141,4 @@ It supports:
 [famicon-screenshot]: ./img/famicon-0.3.0.gif 'Famicon overlay preview'
 [mastersystem-screenshot]: ./img/mastersystem-0.3.0.gif 'Master System overlay preview'
 [mastersystemred-screenshot]: ./img/mastersystemred-0.3.0.gif 'Master System overlay preview (red variation)'
+[arcade8-screenshot]: ./img/arcade8-0.5.0.gif '4-4 buttons Arcade Stick preview'

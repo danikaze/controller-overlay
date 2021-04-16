@@ -71,12 +71,43 @@ export interface InputAxisAsButton {
   max: number;
 }
 
+export interface InputButtonConditionNot {
+  not:
+    | InputButton
+    | InputAxisAsButton
+    | InputButtonConditionAnd
+    | InputButtonConditionOr;
+}
+
+export interface InputButtonConditionAnd {
+  and: (
+    | InputButton
+    | InputAxisAsButton
+    | InputButtonConditionNot
+    | InputButtonConditionOr
+  )[];
+}
+
+export interface InputButtonConditionOr {
+  or: (
+    | InputButton
+    | InputAxisAsButton
+    | InputButtonConditionNot
+    | InputButtonConditionAnd
+  )[];
+}
+
+export type InputButtonCondition =
+  | InputButtonConditionNot
+  | InputButtonConditionAnd
+  | InputButtonConditionOr;
+
 export interface WidgetGroup extends WidgetBase<'group'> {
   children: Widget[];
 }
 
 export interface WidgetButton extends WidgetBase<'button'> {
-  input: InputButton | InputAxisAsButton;
+  input: InputButton | InputAxisAsButton | InputButtonCondition;
   images?: Image | Image[];
 }
 
