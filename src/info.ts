@@ -6,7 +6,7 @@ export function updateInfo(
   mappings: { [ket: string]: Config }
 ) {
   updateConfig(config, mappings);
-  updateSize();
+  setTimeout(updateSize, 500);
   updateUrl();
   updateUa();
 }
