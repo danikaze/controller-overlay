@@ -1,6 +1,18 @@
-import { WidgetButton, InputButton, InputAxisAsButton } from '@src/interfaces';
+import {
+  WidgetButton,
+  InputButton,
+  InputAxisAsButton,
+  InputButtonConditionNot,
+  InputButtonConditionAnd,
+  InputButtonConditionOr,
+} from '@src/interfaces';
 import { createElem, addLabels, renderImage } from '@src/dom';
-import { onButtonChange, onAxisChange } from '@src/controllers';
+import {
+  onButtonChange,
+  onAxisChange,
+  getButton,
+  getAxis,
+} from '@src/controllers';
 
 export function renderButton(def: WidgetButton): HTMLElement | HTMLElement[] {
   return def.images ? renderImagebutton(def) : renderCssButton(def);
@@ -44,27 +56,21 @@ function renderImagebutton(def: WidgetButton): HTMLElement | HTMLElement[] {
 }
 
 function addBehavior(def: WidgetButton, elem: HTMLElement): void {
-  if (def.input.type === 'button') {
-    addButtonBehavior(def.input, elem);
-  } else if (def.input.type === 'axis-as-button') {
-    addAxisToButtonBehavior(def.input, elem);
+  const { input } = def;
+  if (isInputButton(input)) {
+    onButtonChange(input.pad, input.button, (button) => {
+      buttonElemSetPressed(elem, button.pressed);
+    });
+  } else if (isInputAxisAsButton(input)) {
+    onAxisChange(input.pad, input.axis, (value) => {
+      const pressed = value >= input.min && value <= input.max;
+      buttonElemSetPressed(elem, pressed);
+    });
+  } else {
+    onAnyChange(input, () =>
+      buttonElemSetPressed(elem, evalButtonInput(input))
+    );
   }
-}
-
-function addButtonBehavior(input: InputButton, elem: HTMLElement): void {
-  onButtonChange(input.pad, input.button, (button) => {
-    buttonElemSetPressed(elem, button.pressed);
-  });
-}
-
-function addAxisToButtonBehavior(
-  input: InputAxisAsButton,
-  elem: HTMLElement
-): void {
-  onAxisChange(input.pad, input.axis, (value) => {
-    const pressed = value >= input.min && value <= input.max;
-    buttonElemSetPressed(elem, pressed);
-  });
 }
 
 function buttonElemSetPressed(elem: HTMLElement, pressed: boolean): void {
@@ -73,4 +79,69 @@ function buttonElemSetPressed(elem: HTMLElement, pressed: boolean): void {
   } else {
     elem.classList.remove('pressed');
   }
+}
+
+function onAnyChange(input: WidgetButton['input'], callback: () => void) {
+  if (isInputButton(input)) {
+    onButtonChange(input.pad, input.button, () => {
+      callback();
+    });
+  } else if (isInputAxisAsButton(input)) {
+    onAxisChange(input.pad, input.axis, () => {
+      callback();
+    });
+  } else if (isInputButtonConditionNot(input)) {
+    onAnyChange(input.not, callback);
+  } else if (isInputButtonConditionAnd(input)) {
+    input.and.forEach((cond) => onAnyChange(cond, callback));
+  } else if (isInputButtonConditionOr(input)) {
+    input.or.forEach((cond) => onAnyChange(cond, callback));
+  }
+}
+
+function evalButtonInput(input: WidgetButton['input']): boolean {
+  if (isInputButton(input)) {
+    const button = getButton(input.pad, input.button);
+    if (button === undefined) return false;
+    return button.pressed;
+  }
+  if (isInputAxisAsButton(input)) {
+    const axis = getAxis(input.pad, input.axis);
+    if (axis === undefined) return false;
+    return axis >= input.min && axis <= input.max;
+  }
+  if (isInputButtonConditionNot(input)) {
+    return !evalButtonInput(input.not);
+  }
+  if (isInputButtonConditionAnd(input)) {
+    return input.and.every((cond) => evalButtonInput(cond));
+  }
+  if (isInputButtonConditionOr(input)) {
+    return input.or.some((cond) => evalButtonInput(cond));
+  }
+  throw new Error('Unknown WidgetButton.input');
+}
+
+function isInputButton(input: WidgetButton['input']): input is InputButton {
+  return (input as InputButton).type === 'button';
+}
+function isInputAxisAsButton(
+  input: WidgetButton['input']
+): input is InputAxisAsButton {
+  return (input as InputAxisAsButton).type === 'axis-as-button';
+}
+function isInputButtonConditionNot(
+  input: WidgetButton['input']
+): input is InputButtonConditionNot {
+  return (input as InputButtonConditionNot).not !== undefined;
+}
+function isInputButtonConditionAnd(
+  input: WidgetButton['input']
+): input is InputButtonConditionAnd {
+  return (input as InputButtonConditionAnd).and !== undefined;
+}
+function isInputButtonConditionOr(
+  input: WidgetButton['input']
+): input is InputButtonConditionOr {
+  return (input as InputButtonConditionOr).or !== undefined;
 }

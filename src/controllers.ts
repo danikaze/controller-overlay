@@ -37,6 +37,21 @@ export function initControllers() {
   );
 }
 
+export function getButton(
+  padId: string,
+  button: number
+): GamepadButton | undefined {
+  const gamepad = gamepadMapping[padId];
+  if (!gamepad || gamepad.index === -1) return;
+  return navigator.getGamepads()[gamepad.index]!.buttons[button];
+}
+
+export function getAxis(padId: string, axis: number): number | undefined {
+  const gamepad = gamepadMapping[padId];
+  if (!gamepad || gamepad.index === -1) return;
+  return navigator.getGamepads()[gamepad.index]!.axes[axis];
+}
+
 const gamepadMapping: {
   [padId: string]: {
     index: number;
@@ -95,11 +110,12 @@ function onGamepadDisconnected(event: GamepadEvent): void {
 }
 
 function poll() {
+  const gamepads = navigator.getGamepads();
   Object.values(gamepadMapping).forEach((mapping) => {
     const { index, timestamp, listeners } = mapping;
 
     if (index === -1 || listeners.length === 0) return;
-    const gamepad = navigator.getGamepads()[index];
+    const gamepad = gamepads[index];
     if (!gamepad || timestamp >= gamepad.timestamp) return;
 
     mapping.timestamp = gamepad.timestamp;
