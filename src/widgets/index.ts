@@ -1,6 +1,6 @@
 import { Widget } from '@src/interfaces';
 import { renderButton } from './button';
-import { renderAxis } from './axis';
+import { renderCssAxis, renderImageAxis } from './axis';
 import { renderGroup } from './group';
 
 export function renderWidget(
@@ -13,6 +13,9 @@ export function renderWidget(
     return renderButton(widget);
   }
   if (widget.type === 'axis') {
-    return renderAxis(widget);
+    return renderCssAxis(widget);
+  }
+  if (widget.type === 'axis-image') {
+    return renderImageAxis(widget);
   }
 }

@@ -1,5 +1,10 @@
-import { WidgetAxis, InputAxis, InputButtonAsAxis } from '@src/interfaces';
-import { createElem, addLabels } from '@src/dom';
+import {
+  WidgetCssAxis,
+  InputAxis,
+  InputButtonAsAxis,
+  WidgetImageAxis,
+} from '@src/interfaces';
+import { createElem, addLabels, renderImage } from '@src/dom';
 import { onButtonChange, onAxisChange } from '@src/controllers';
 
 const FULL_HEIGHT = 100;
@@ -19,10 +24,13 @@ const DEFAULT_STYLES = {
   },
 };
 
-export function renderAxis(def: WidgetAxis): HTMLElement {
+export function renderCssAxis(def: WidgetCssAxis): HTMLElement {
   const axisType = `${def.input.x ? 'x' : ''}${def.input.y ? 'y' : ''}`;
   const widget = createElem({
     classes: `widget axis ${def.type}-${axisType}`,
+    data: {
+      button: def.name,
+    },
     styles: {
       ...DEFAULT_STYLES[axisType as 'x' | 'y' | 'xy'],
       ...def.styles?.widget,
@@ -70,6 +78,31 @@ export function renderAxis(def: WidgetAxis): HTMLElement {
   addBehavior(def.input.x, 'x', position, DEFAULT_AXIS_SIZE);
   addBehavior(def.input.y, 'y', position, DEFAULT_AXIS_SIZE);
 
+  return widget;
+}
+
+export function renderImageAxis(def: WidgetImageAxis): HTMLElement {
+  const images = Array.isArray(def.images) ? def.images : [def.images];
+  const imgElems = images.map((image) => {
+    const imgElem = renderImage(image);
+    if (image.radiusX) {
+      addBehavior(def.input.x!, 'x', imgElem, image.radiusX * 2);
+    }
+    if (image.radiusY) {
+      addBehavior(def.input.y!, 'y', imgElem, image.radiusY * 2);
+    }
+    return imgElem;
+  });
+
+  const axisType = `${def.input.x ? 'x' : ''}${def.input.y ? 'y' : ''}`;
+  const widget = createElem({
+    classes: `widget axis ${def.type}-${axisType}`,
+    children: imgElems,
+    styles: def.styles?.widget,
+    data: {
+      button: def.name,
+    },
+  });
   return widget;
 }
 
