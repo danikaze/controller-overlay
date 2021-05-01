@@ -14,11 +14,12 @@ import { config as mastersystemConfig } from './configs/mastersystem';
 import { config as mastersystemRedConfig } from './configs/mastersystem-red';
 import { config as sufamiConfig } from './configs/sufami';
 import { config as snesConfig } from './configs/snes';
+import { config as xbox360Config } from './configs/xbox360';
 import { useStyle } from './style';
 
 const configMapping: { [ket: string]: Config } = {
-  'arcade8-snes': arcade8Config,
-  'arcade6-neogeo': arcade6Config,
+  arcade8snes: arcade8Config,
+  arcade6neogeo: arcade6Config,
   elite: eliteConfig,
   sws: swsConfig,
   megadrive3: megaDrive3config,
@@ -29,6 +30,7 @@ const configMapping: { [ket: string]: Config } = {
   mastersystemred: mastersystemRedConfig,
   sufami: sufamiConfig,
   snes: snesConfig,
+  xbox360: xbox360Config,
 };
 
 const url = new URL(location.href);
