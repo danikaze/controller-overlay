@@ -2,45 +2,53 @@
 
 Generate a browser source (to use via [OBS](https://obsproject.com/) or any other tool) displaying an overlay of your HOTAS controller in real time.
 
-`config=elite`
+[`config=elite`](src/configs/elite.ts)
 
 ![Preview screenshot][elite-screenshot]
 
-`config=megadrive6`
+[`config=megadrive6`](src/configs/megadrive6.ts)
 
 ![Preview screenshot][megadrive6-screenshot]
 
-`config=megadrive3`
+[`config=megadrive3`](src/configs/megadrive3.ts)
 
 ![Preview screenshot][megadrive3-screenshot]
 
-`config=sufami`
+[`config=sufami`](src/configs/sufami.ts)
 
 ![Preview screenshot][sufami-screenshot]
 
-`config=snes`
+[`config=snes`](src/configs/snes.ts)
 
 ![Preview screenshot][snes-screenshot]
 
-`config=nes`
+[`config=nes`](src/configs/nes.ts)
 
 ![Preview screenshot][nes-screenshot]
 
-`config=famicon`
+[`config=famicon`](src/configs/famicon.ts)
 
 ![Preview screenshot][famicon-screenshot]
 
-`config=mastersystem`
+[`config=mastersystem`](src/configs/mastersystem.ts)
 
 ![Preview screenshot][mastersystem-screenshot]
 
-`config=mastersystemred`
+[`config=mastersystemred`](src/configs/mastersystem-red.ts)
 
 ![Preview screenshot][mastersystemred-screenshot]
 
-`config=arcade8`
+[`config=arcade8snes`](src/configs/arcade8-snes.ts)
 
 ![Preview screenshot][arcade8-screenshot]
+
+[`config=arcade6neogeo`](src/configs/arcade6-neogeo.ts)
+
+![Preview screenshot][arcade6-screenshot]
+
+[`config=xbox360`](src/configs/xbox360.ts)
+
+![Preview screenshot][xbox360-screenshot]
 
 ## How to use it
 
@@ -144,4 +152,6 @@ It supports:
 [famicon-screenshot]: ./img/famicon-0.3.0.gif 'Famicon overlay preview'
 [mastersystem-screenshot]: ./img/mastersystem-0.3.0.gif 'Master System overlay preview'
 [mastersystemred-screenshot]: ./img/mastersystemred-0.3.0.gif 'Master System overlay preview (red variation)'
-[arcade8-screenshot]: ./img/arcade8-0.5.0.gif '4-4 buttons Arcade Stick preview'
+[arcade8-screenshot]: ./img/arcade8-0.5.0.gif '4-4 buttons Arcade Stick overlay preview'
+[arcade6-screenshot]: ./img/arcade6-0.6.0.gif '4-2 buttons Arcade Stick overlay preview'
+[xbox360-screenshot]: ./img/xbox360-0.6.0.gif 'Xbox360 overlay preview'
