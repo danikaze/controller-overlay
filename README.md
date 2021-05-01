@@ -101,10 +101,16 @@ Building will generate the required files in the `app` folder, the `index.html` 
 
 ## Changelog
 
+### 0.6.0
+
+- Added support for rendering axes using images
+- Added a [configuration](src/configs/arcade6-neogeo.ts) for the Neo Geo mini controller with the [Arcade 4+2 stick design](./img/arcade6-0.6.0.gif).
+- Added a [configuration](src/configs/xbox360.ts) for the [Xbox 360 controller pad](img/xbox360-0.6.0.gif).
+
 ### 0.5.0
 
 - Added support for logic configuration (`AND`, `OR`, `NOT`) - i.e: to show an image when 2 buttons are pressed at the same time (diagonals), etc.
-- Added a [configuration](src/configs/arcade8.ts) for the Buffalo controller with the [Arcade 4+4 stick design](img/arcade8-0.5.0.gif).
+- Added a [configuration](src/configs/arcade8-snes.ts) for the Buffalo controller with the [Arcade 4+4 stick design](img/arcade8-0.5.0.gif).
 
 ### 0.4.0
 
