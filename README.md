@@ -69,6 +69,9 @@ This project plans to support combinations of inputs and displays:
 | CSS XY-axis          | ✔              | ✖      | ✔      |
 | Image digital button | ✔              | ✔      | ✔      |
 | Image analog button  | ✖              | △      | ✖      |
+| Image X-axis         | ✔              | ✔      | ✖      |
+| Image Y-axis         | ✔              | ✔      | ✖      |
+| Image XY-axis        | ✔              | ✖      | ✔      |
 
 ✔ = done | △ = planned | ✖ = not gonna happen
 

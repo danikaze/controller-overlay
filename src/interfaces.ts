@@ -23,7 +23,11 @@ export interface Image {
   zIndex?: number;
 }
 
-export type Widget = WidgetGroup | WidgetButton | WidgetAxis;
+export type Widget =
+  | WidgetGroup
+  | WidgetButton
+  | WidgetCssAxis
+  | WidgetImageAxis;
 
 export interface WidgetLabel {
   center?: string;
@@ -111,8 +115,21 @@ export interface WidgetButton extends WidgetBase<'button'> {
   images?: Image | Image[];
 }
 
-export interface WidgetAxis extends WidgetBase<'axis', 'position'> {
+export interface WidgetCssAxis extends WidgetBase<'axis', 'position'> {
   gridlines?: number[];
+  input: {
+    x?: InputAxis | InputButtonAsAxis;
+    y?: InputAxis | InputButtonAsAxis;
+  };
+}
+
+export interface AxisImage extends Image {
+  radiusX?: number;
+  radiusY?: number;
+}
+
+export interface WidgetImageAxis extends WidgetBase<'axis-image'> {
+  images: AxisImage | AxisImage[];
   input: {
     x?: InputAxis | InputButtonAsAxis;
     y?: InputAxis | InputButtonAsAxis;
