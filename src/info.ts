@@ -1,12 +1,14 @@
 import { Config } from './interfaces';
 import { createElem } from './dom';
 
+const UPDATE_INFO_DELAY_MS = 500;
+
 export function updateInfo(
   config: Config,
   mappings: { [ket: string]: Config }
 ) {
   updateConfig(config, mappings);
-  setTimeout(updateSize, 500);
+  setTimeout(updateSize, UPDATE_INFO_DELAY_MS);
   updateUrl();
   updateUa();
 }
