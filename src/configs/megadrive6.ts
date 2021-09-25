@@ -1,4 +1,5 @@
 // tslint:disable: no-magic-numbers
+import { MEGADRIVE_BUTTON } from '@src/constants/megadrive6-buttons';
 import { Config } from '@src/interfaces';
 
 export const config: Config = {
@@ -15,11 +16,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Start Button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 9,
-      },
+      input: MEGADRIVE_BUTTON.START,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -34,11 +31,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Mode button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 8,
-      },
+      input: MEGADRIVE_BUTTON.MODE,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -53,13 +46,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Up button',
-      input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 1,
-        min: -Infinity,
-        max: -0.5,
-      },
+      input: MEGADRIVE_BUTTON.UP,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -74,13 +61,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Down button',
-      input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 1,
-        min: 0.5,
-        max: Infinity,
-      },
+      input: MEGADRIVE_BUTTON.DOWN,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -95,13 +76,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Left button',
-      input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 0,
-        min: -Infinity,
-        max: -0.5,
-      },
+      input: MEGADRIVE_BUTTON.LEFT,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -116,13 +91,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Right button',
-      input: {
-        type: 'axis-as-button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        axis: 0,
-        min: 0.5,
-        max: Infinity,
-      },
+      input: MEGADRIVE_BUTTON.RIGHT,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -137,11 +106,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'A button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 2,
-      },
+      input: MEGADRIVE_BUTTON.A,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -156,11 +121,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'B button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 1,
-      },
+      input: MEGADRIVE_BUTTON.B,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -175,11 +136,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'C button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 5,
-      },
+      input: MEGADRIVE_BUTTON.C,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -194,11 +151,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'X button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 3,
-      },
+      input: MEGADRIVE_BUTTON.X,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -213,11 +166,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Y button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 0,
-      },
+      input: MEGADRIVE_BUTTON.Y,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
@@ -232,11 +181,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Z button',
-      input: {
-        type: 'button',
-        pad: '6B controller (Vendor: 0ca3 Product: 0024)',
-        button: 4,
-      },
+      input: MEGADRIVE_BUTTON.Z,
       images: {
         src: 'img/megadrive6/pressed.png',
         zIndex: 2,
