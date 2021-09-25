@@ -1,7 +1,7 @@
 // tslint:disable: no-magic-numbers
 import { Config } from '../interfaces';
 import { IMG_ARCADE_BUTTON } from '../constants/arcade-img';
-import { NEOGEO_MINI_BUTTON } from '../constants/neogeo-buttons';
+import { SNES_BUTTON } from '@src/constants/snes-buttons';
 
 type Buttons = 'SELECT' | 'START' | 'A' | 'B' | 'C' | 'D';
 
@@ -40,13 +40,13 @@ const BUTTON_POSITION: {
 
 export const config: Config = {
   version: 1,
-  name: 'Neo-Geo mini controller as 4+2 buttons Arcade stick',
+  name: 'iBuffalo controller as 4+2 buttons Arcade stick',
   widgets: [
     {
       type: 'button',
       name: 'Start button (default)',
       input: {
-        not: NEOGEO_MINI_BUTTON.START,
+        not: SNES_BUTTON.START,
       },
       images: {
         ...IMG_ARCADE_BUTTON.LIGHT_GREY.DEFAULT,
@@ -56,7 +56,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Start button (pushed)',
-      input: NEOGEO_MINI_BUTTON.START,
+      input: SNES_BUTTON.START,
       images: {
         ...IMG_ARCADE_BUTTON.LIGHT_GREY.PUSHED,
         ...BUTTON_POSITION.SELECT.PUSHED,
@@ -66,7 +66,7 @@ export const config: Config = {
       type: 'button',
       name: 'Select Button (default)',
       input: {
-        not: NEOGEO_MINI_BUTTON.SELECT,
+        not: SNES_BUTTON.SELECT,
       },
       images: {
         ...IMG_ARCADE_BUTTON.DARK_GREY.DEFAULT,
@@ -76,7 +76,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Select Button (pushed)',
-      input: NEOGEO_MINI_BUTTON.SELECT,
+      input: SNES_BUTTON.SELECT,
       images: {
         ...IMG_ARCADE_BUTTON.DARK_GREY.PUSHED,
         ...BUTTON_POSITION.START.PUSHED,
@@ -88,14 +88,10 @@ export const config: Config = {
       input: {
         not: {
           or: [
-            NEOGEO_MINI_BUTTON.UP,
-            NEOGEO_MINI_BUTTON.DOWN,
-            NEOGEO_MINI_BUTTON.LEFT,
-            NEOGEO_MINI_BUTTON.RIGHT,
-            NEOGEO_MINI_BUTTON.UP_LEFT,
-            NEOGEO_MINI_BUTTON.UP_RIGHT,
-            NEOGEO_MINI_BUTTON.DOWN_LEFT,
-            NEOGEO_MINI_BUTTON.DOWN_RIGHT,
+            SNES_BUTTON.UP,
+            SNES_BUTTON.DOWN,
+            SNES_BUTTON.LEFT,
+            SNES_BUTTON.RIGHT,
           ],
         },
       },
@@ -107,7 +103,16 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Up button',
-      input: NEOGEO_MINI_BUTTON.UP,
+      input: {
+        and: [
+          SNES_BUTTON.UP,
+          {
+            not: {
+              or: [SNES_BUTTON.DOWN, SNES_BUTTON.LEFT, SNES_BUTTON.RIGHT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-up.png',
         ...STICK_POSITION,
@@ -116,7 +121,16 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Down button',
-      input: NEOGEO_MINI_BUTTON.DOWN,
+      input: {
+        and: [
+          SNES_BUTTON.DOWN,
+          {
+            not: {
+              or: [SNES_BUTTON.UP, SNES_BUTTON.LEFT, SNES_BUTTON.RIGHT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-down.png',
         ...STICK_POSITION,
@@ -125,7 +139,16 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Left button',
-      input: NEOGEO_MINI_BUTTON.LEFT,
+      input: {
+        and: [
+          SNES_BUTTON.LEFT,
+          {
+            not: {
+              or: [SNES_BUTTON.UP, SNES_BUTTON.DOWN, SNES_BUTTON.RIGHT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-left.png',
         ...STICK_POSITION,
@@ -134,7 +157,16 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Right button',
-      input: NEOGEO_MINI_BUTTON.RIGHT,
+      input: {
+        and: [
+          SNES_BUTTON.RIGHT,
+          {
+            not: {
+              or: [SNES_BUTTON.UP, SNES_BUTTON.DOWN, SNES_BUTTON.LEFT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-right.png',
         ...STICK_POSITION,
@@ -143,8 +175,17 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Up+Right button',
-      input: NEOGEO_MINI_BUTTON.UP_RIGHT,
-
+      input: {
+        and: [
+          SNES_BUTTON.UP,
+          SNES_BUTTON.RIGHT,
+          {
+            not: {
+              or: [SNES_BUTTON.DOWN, SNES_BUTTON.LEFT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-up-right.png',
         ...STICK_POSITION,
@@ -153,7 +194,17 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Down+Right button',
-      input: NEOGEO_MINI_BUTTON.DOWN_RIGHT,
+      input: {
+        and: [
+          SNES_BUTTON.DOWN,
+          SNES_BUTTON.RIGHT,
+          {
+            not: {
+              or: [SNES_BUTTON.UP, SNES_BUTTON.LEFT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-down-right.png',
         ...STICK_POSITION,
@@ -162,7 +213,17 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Up+Left button',
-      input: NEOGEO_MINI_BUTTON.UP_LEFT,
+      input: {
+        and: [
+          SNES_BUTTON.UP,
+          SNES_BUTTON.LEFT,
+          {
+            not: {
+              or: [SNES_BUTTON.DOWN, SNES_BUTTON.RIGHT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-up-left.png',
         ...STICK_POSITION,
@@ -171,7 +232,17 @@ export const config: Config = {
     {
       type: 'button',
       name: 'Down+Left button',
-      input: NEOGEO_MINI_BUTTON.DOWN_LEFT,
+      input: {
+        and: [
+          SNES_BUTTON.DOWN,
+          SNES_BUTTON.LEFT,
+          {
+            not: {
+              or: [SNES_BUTTON.UP, SNES_BUTTON.RIGHT],
+            },
+          },
+        ],
+      },
       images: {
         src: 'img/arcade/stick-down-left.png',
         ...STICK_POSITION,
@@ -179,9 +250,9 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'A/red button (default)',
+      name: 'Y/red button (default)',
       input: {
-        not: NEOGEO_MINI_BUTTON.A,
+        not: SNES_BUTTON.Y,
       },
       images: {
         ...IMG_ARCADE_BUTTON.RED.DEFAULT,
@@ -190,8 +261,8 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'A/red button (pushed)',
-      input: NEOGEO_MINI_BUTTON.A,
+      name: 'Y/red button (pushed)',
+      input: SNES_BUTTON.Y,
       images: {
         ...IMG_ARCADE_BUTTON.RED.PUSHED,
         ...BUTTON_POSITION.A.PUSHED,
@@ -201,7 +272,7 @@ export const config: Config = {
       type: 'button',
       name: 'B/yellow button (default)',
       input: {
-        not: NEOGEO_MINI_BUTTON.B,
+        not: SNES_BUTTON.B,
       },
       images: {
         ...IMG_ARCADE_BUTTON.YELLOW.DEFAULT,
@@ -211,7 +282,7 @@ export const config: Config = {
     {
       type: 'button',
       name: 'B/yellow button (pushed)',
-      input: NEOGEO_MINI_BUTTON.B,
+      input: SNES_BUTTON.B,
       images: {
         ...IMG_ARCADE_BUTTON.YELLOW.PUSHED,
         ...BUTTON_POSITION.B.PUSHED,
@@ -220,9 +291,9 @@ export const config: Config = {
 
     {
       type: 'button',
-      name: 'C/green button (default)',
+      name: 'X/green button (default)',
       input: {
-        not: NEOGEO_MINI_BUTTON.C,
+        not: SNES_BUTTON.X,
       },
       images: {
         ...IMG_ARCADE_BUTTON.GREEN.DEFAULT,
@@ -231,8 +302,8 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'C/green button (pushed)',
-      input: NEOGEO_MINI_BUTTON.C,
+      name: 'X/green button (pushed)',
+      input: SNES_BUTTON.X,
       images: {
         ...IMG_ARCADE_BUTTON.GREEN.PUSHED,
         ...BUTTON_POSITION.C.PUSHED,
@@ -240,9 +311,9 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'D/blue button (default)',
+      name: 'A/blue button (default)',
       input: {
-        not: NEOGEO_MINI_BUTTON.D,
+        not: SNES_BUTTON.A,
       },
       images: {
         ...IMG_ARCADE_BUTTON.BLUE.DEFAULT,
@@ -251,8 +322,8 @@ export const config: Config = {
     },
     {
       type: 'button',
-      name: 'D/blue button (pushed)',
-      input: NEOGEO_MINI_BUTTON.D,
+      name: 'A/blue button (pushed)',
+      input: SNES_BUTTON.A,
       images: {
         ...IMG_ARCADE_BUTTON.BLUE.PUSHED,
         ...BUTTON_POSITION.D.PUSHED,

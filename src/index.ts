@@ -2,8 +2,9 @@ import { initControllers } from './controllers';
 import { updateInfo } from './info';
 import { renderConfig } from './config';
 import { Config } from './interfaces';
-import { config as arcade8Config } from './configs/arcade8-snes';
-import { config as arcade6Config } from './configs/arcade6-neogeo';
+import { config as arcade8snesConfig } from './configs/arcade8-snes';
+import { config as arcade6neogeoConfig } from './configs/arcade6-neogeo';
+import { config as arcade6snesConfig } from './configs/arcade6-snes';
 import { config as eliteConfig } from './configs/elite';
 import { config as swsConfig } from './configs/sws';
 import { config as megaDrive6config } from './configs/megadrive6';
@@ -18,8 +19,9 @@ import { config as xbox360Config } from './configs/xbox360';
 import { useStyle } from './style';
 
 const configMapping: { [ket: string]: Config } = {
-  arcade8snes: arcade8Config,
-  arcade6neogeo: arcade6Config,
+  arcade8snes: arcade8snesConfig,
+  arcade6neogeo: arcade6neogeoConfig,
+  arcade6snes: arcade6snesConfig,
   elite: eliteConfig,
   sws: swsConfig,
   megadrive3: megaDrive3config,
