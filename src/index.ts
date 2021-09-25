@@ -10,6 +10,7 @@ import { config as swsConfig } from './configs/sws';
 import { config as megaDrive6config } from './configs/megadrive6';
 import { config as megaDrive3config } from './configs/megadrive3';
 import { config as md6sufamiConfig } from './configs/md6-as-sufami';
+import { config as xbox360sufamiConfig } from './configs/xbox360-as-sufami';
 import { config as famiconConfig } from './configs/famicon';
 import { config as nesConfig } from './configs/nes';
 import { config as mastersystemConfig } from './configs/mastersystem';
@@ -28,6 +29,7 @@ const configMapping: { [ket: string]: Config } = {
   megadrive3: megaDrive3config,
   megadrive6: megaDrive6config,
   md6sufami: md6sufamiConfig,
+  xbox360sufami: xbox360sufamiConfig,
   famicon: famiconConfig,
   nes: nesConfig,
   mastersystem: mastersystemConfig,
