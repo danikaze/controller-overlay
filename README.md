@@ -50,6 +50,10 @@ Generate a browser source (to use via [OBS](https://obsproject.com/) or any othe
 
 ![Preview screenshot][xbox360-screenshot]
 
+[`config=gba`](src/configs/gba.ts)
+
+![Preview screenshot][gba-screenshot]
+
 ## How to use it
 
 Download the [latest version](https://github.com/danikaze/controller-overlay/releases/latest) and open `index.html`. This should display a webpage like the one shown in the screenshot.
@@ -104,6 +108,7 @@ Building will generate the required files in the `app` folder, the `index.html` 
 ### 0.7.0
 
 - Added support for input keys as buttons
+- Added a [configuration](src/configs/gba.ts) for the [Arcade 4+2 stick design](./img/gba-0.7.0.gif) using the keyboard .
 
 ### 0.6.0
 
@@ -165,3 +170,4 @@ It supports:
 [arcade8-screenshot]: ./img/arcade8-0.5.0.gif '4-4 buttons Arcade Stick overlay preview'
 [arcade6-screenshot]: ./img/arcade6-0.6.0.gif '4-2 buttons Arcade Stick overlay preview'
 [xbox360-screenshot]: ./img/xbox360-0.6.0.gif 'Xbox360 overlay preview'
+[gba-screenshot]: ./img/gba-0.7.0.gif 'Game Boy Advance overlay preview'

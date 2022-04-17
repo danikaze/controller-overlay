@@ -18,6 +18,7 @@ import { config as mastersystemRedConfig } from './configs/mastersystem-red';
 import { config as sufamiConfig } from './configs/sufami';
 import { config as snesConfig } from './configs/snes';
 import { config as xbox360Config } from './configs/xbox360';
+import { config as gbaConfig } from './configs/gba';
 import { useStyle } from './style';
 
 const configMapping: { [ket: string]: Config } = {
@@ -37,6 +38,7 @@ const configMapping: { [ket: string]: Config } = {
   sufami: sufamiConfig,
   snes: snesConfig,
   xbox360: xbox360Config,
+  gba: gbaConfig,
 };
 
 const url = new URL(location.href);
