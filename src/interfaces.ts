@@ -46,6 +46,11 @@ interface WidgetBase<T, S extends string = WidgetStyles> {
   styles?: Partial<{ [part in S | WidgetStyles]: { [key: string]: string } }>;
 }
 
+export interface InputKeyAsButton {
+  type: 'key-as-button';
+  key: string;
+}
+
 export interface InputButton {
   type: 'button';
   pad: string;
@@ -111,7 +116,11 @@ export interface WidgetGroup extends WidgetBase<'group'> {
 }
 
 export interface WidgetButton extends WidgetBase<'button'> {
-  input: InputButton | InputAxisAsButton | InputButtonCondition;
+  input:
+    | InputButton
+    | InputAxisAsButton
+    | InputButtonCondition
+    | InputKeyAsButton;
   images?: Image | Image[];
 }
 

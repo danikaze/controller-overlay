@@ -5,6 +5,7 @@ import {
   InputButtonConditionNot,
   InputButtonConditionAnd,
   InputButtonConditionOr,
+  InputKeyAsButton,
 } from '@src/interfaces';
 import { createElem, addLabels, renderImage } from '@src/dom';
 import {
@@ -13,6 +14,7 @@ import {
   getButton,
   getAxis,
 } from '@src/controllers';
+import { onKeyChange } from '@src/keyboard';
 
 export function renderButton(def: WidgetButton): HTMLElement | HTMLElement[] {
   return def.images ? renderImagebutton(def) : renderCssButton(def);
@@ -64,6 +66,10 @@ function addBehavior(def: WidgetButton, elem: HTMLElement): void {
   } else if (isInputAxisAsButton(input)) {
     onAxisChange(input.pad, input.axis, (value) => {
       const pressed = value >= input.min && value <= input.max;
+      buttonElemSetPressed(elem, pressed);
+    });
+  } else if (isKeyAsButton(input)) {
+    onKeyChange(input.key, (pressed) => {
       buttonElemSetPressed(elem, pressed);
     });
   } else {
@@ -129,6 +135,11 @@ function isInputAxisAsButton(
   input: WidgetButton['input']
 ): input is InputAxisAsButton {
   return (input as InputAxisAsButton).type === 'axis-as-button';
+}
+function isKeyAsButton(
+  input: WidgetButton['input']
+): input is InputKeyAsButton {
+  return (input as InputKeyAsButton).type === 'key-as-button';
 }
 function isInputButtonConditionNot(
   input: WidgetButton['input']

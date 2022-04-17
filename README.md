@@ -101,6 +101,10 @@ Building will generate the required files in the `app` folder, the `index.html` 
 
 ## Changelog
 
+### 0.7.0
+
+- Added support for input keys as buttons
+
 ### 0.6.0
 
 - Added support for rendering axes using images
